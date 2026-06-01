@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Figurelise Sdn Bhd — Visualise Your Business</title>
-<meta name="description" content="Figurelise Sdn Bhd is an integrated finance, tax, payroll, compliance and Odoo ERP partner for Malaysian SMEs — turning scattered business data into real-time, decision-ready dashboards.">
+<meta name="description" content="Figurelise Sdn Bhd is an integrated finance, tax, payroll, compliance and ERP partner for Malaysian SMEs — turning scattered business data into real-time, decision-ready dashboards.">
 <meta name="theme-color" content="#1E2D40">
 
 <!-- Open Graph / social sharing (WhatsApp, LinkedIn, Facebook) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Figurelise Sdn Bhd">
 <meta property="og:title" content="Figurelise Sdn Bhd — Visualise Your Business">
-<meta property="og:description" content="Integrated finance, compliance, payroll and Odoo ERP for Malaysian SMEs. From scattered data to clear, decision-ready dashboards.">
+<meta property="og:description" content="Integrated finance, compliance, payroll and ERP for Malaysian SMEs. From scattered data to clear, decision-ready dashboards.">
 <!-- TODO: replace with your real domain + a 1200x630 share image -->
 <meta property="og:url" content="https://www.figurelise.com/">
 <meta property="og:image" content="https://www.figurelise.com/og-image.png">
@@ -19,15 +21,15 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Figurelise Sdn Bhd — Visualise Your Business">
-<meta name="twitter:description" content="Integrated finance, compliance, payroll and Odoo ERP for Malaysian SMEs.">
+<meta name="twitter:description" content="Integrated finance, compliance, payroll and ERP for Malaysian SMEs.">
 <meta name="twitter:image" content="https://www.figurelise.com/og-image.png">
 
-<!-- Inline SVG favicon (brand squares) — no extra request -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 32'%3E%3Crect x='0' y='25' width='6' height='6' rx='1' fill='%23C5DCE6'/%3E%3Crect x='8' y='20' width='8' height='11' rx='1' fill='%238BBFCC'/%3E%3Crect x='18' y='14' width='9' height='17' rx='1' fill='%235B9EC9'/%3E%3Crect x='29' y='7' width='10' height='24' rx='1' fill='%232B5F8E'/%3E%3C/svg%3E">
+<!-- Inline SVG favicon (brand ascending bars) — no extra request -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Crect x='0' y='20' width='7' height='10' rx='1.5' fill='%23C5DCE6'/%3E%3Crect x='9' y='13' width='7' height='17' rx='1.5' fill='%238BBFCC'/%3E%3Crect x='18' y='7' width='7' height='23' rx='1.5' fill='%235B9EC9'/%3E%3Crect x='27' y='0' width='7' height='30' rx='1.5' fill='%232B5F8E'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 
 <!-- Structured data for search engines. TODO: fill in real phone/address. -->
@@ -36,10 +38,9 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Figurelise Sdn Bhd",
-  "description": "Integrated finance, tax, payroll, compliance and Odoo ERP services for Malaysian SMEs.",
+  "description": "Integrated finance, tax, payroll, compliance and ERP services for Malaysian SMEs.",
   "url": "https://www.figurelise.com/",
   "email": "hello@figurelise.com",
-  "telephone": "+60-12-345-6789",
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "MY",
@@ -53,133 +54,189 @@
 :root{
   --navy:#1E2D40;--teal:#4A8A9C;--blue:#2B5F8E;--sky:#5B9EC9;--lteal:#8BBFCC;--pale:#C5DCE6;
   --bg:#F4F7F9;--surface:#FFFFFF;--text:#1E2D40;--muted:#5A7080;--border:rgba(74,138,156,0.18);
-  --green:#2E7D5E;--amber:#B07A1A;--red:#C0392B
+  --green:#2E7D5E;--amber:#B07A1A;--red:#C0392B;--navh:64px
 }
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+*{-webkit-tap-highlight-color:transparent}
+button,a,.pillar,.scene-step,.svc,.pkg{touch-action:manipulation}
 canvas#bgc{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .page{position:relative;z-index:1}
 
-/* NAV */
-.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2.5rem;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(244,247,249,0.92);backdrop-filter:blur(14px);border-bottom:0.5px solid var(--border)}
+/* ── NAV ─────────────────────────────────────────────── */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:0.85rem 2.5rem;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(244,247,249,0.92);backdrop-filter:blur(14px);border-bottom:0.5px solid var(--border);height:var(--navh)}
 .logo-wrap{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
-.logo-mark{display:flex;gap:2px;align-items:flex-end}
-.sq{border-radius:2px}
-.sq1{width:5px;height:5px;background:#C5DCE6}.sq2{width:7px;height:7px;background:#8BBFCC}.sq3{width:9px;height:9px;background:#5B9EC9}.sq4{width:11px;height:11px;background:#2B5F8E}.sq5{width:13px;height:13px;background:#1E2D40}
-.logo-text{font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-0.5px}
+.logo-mark{display:block;flex-shrink:0;transition:transform 0.3s}
+.logo-wrap:hover .logo-mark{transform:translateY(-2px)}
+.logo-text{font-size:19px;font-weight:800;color:var(--navy);letter-spacing:-0.6px}
 .logo-text span{color:var(--blue)}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color 0.2s;cursor:pointer}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color 0.2s;cursor:pointer;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--blue);border-radius:2px;transition:width 0.25s}
 .nav-links a:hover{color:var(--navy)}
+.nav-links a.active{color:var(--navy);font-weight:600}
+.nav-links a.active::after{width:100%}
 .nav-cta{font-size:13px;padding:8px 20px;border:1px solid var(--teal);border-radius:6px;background:transparent;color:var(--teal);cursor:pointer;font-weight:500;transition:all 0.2s;font-family:'Inter',sans-serif}
 .nav-cta:hover{background:var(--teal);color:#fff}
+.nav-burger{display:none;background:none;border:none;color:var(--navy);font-size:24px;cursor:pointer;padding:4px 6px;line-height:1}
+.mobile-menu{display:none}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 3rem;position:relative}
-.hero-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:1.5rem;opacity:0;animation:fu 0.8s 0.3s forwards}
-.hero h1{font-size:62px;font-weight:700;line-height:1.05;letter-spacing:-2.5px;margin-bottom:1.5rem;opacity:0;animation:fu 0.9s 0.5s forwards;color:var(--navy)}
+/* ── VIEW / ROUTING ──────────────────────────────────── */
+.view{display:none;animation:viewIn 0.5s ease}
+.view.active{display:block}
+@keyframes viewIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ── HERO ────────────────────────────────────────────── */
+.hero{min-height:calc(100vh - var(--navh));min-height:calc(100svh - var(--navh));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 2rem;position:relative}
+.hero-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:1.5rem;opacity:0;animation:fu 0.8s 0.2s forwards}
+.hero h1{font-size:64px;font-weight:800;line-height:1.04;letter-spacing:-2.5px;margin-bottom:1.5rem;opacity:0;animation:fu 0.9s 0.4s forwards;color:var(--navy)}
 .hero h1 .hl{color:var(--sky);position:relative}
-.hero h1 .hl::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:3px;background:var(--sky);border-radius:2px;animation:lw 1s 1.4s forwards}
-.hero-sub{font-size:18px;color:var(--muted);line-height:1.75;max-width:540px;margin:0 auto 2.5rem;opacity:0;animation:fu 0.9s 0.7s forwards}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu 0.9s 0.9s forwards}
+.hero h1 .hl::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:3px;background:var(--sky);border-radius:2px;animation:lw 1s 1.3s forwards}
+.hero-sub{font-size:18px;color:var(--muted);line-height:1.75;max-width:560px;margin:0 auto 2.5rem;opacity:0;animation:fu 0.9s 0.6s forwards}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu 0.9s 0.8s forwards}
 .btn-main{padding:14px 34px;font-size:14px;font-weight:600;background:var(--navy);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
 .btn-main:hover{background:var(--blue);transform:translateY(-2px)}
 .btn-out{padding:14px 34px;font-size:14px;font-weight:500;background:transparent;color:var(--navy);border:1.5px solid rgba(30,45,64,0.22);border-radius:8px;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
 .btn-out:hover{border-color:var(--teal);color:var(--teal)}
-.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fu 1s 1.8s forwards}
-.scroll-line{width:1px;height:44px;background:linear-gradient(var(--teal),transparent)}
-.scroll-txt{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
 
-/* STATS */
-.stats-wrap{padding:0 2.5rem}
-.stats{display:flex;justify-content:center;flex-wrap:wrap;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
-.stat-card{flex:1;min-width:140px;padding:2rem 1.25rem;text-align:center;background:var(--surface);border-right:0.5px solid var(--border)}
-.stat-card:last-child{border-right:none}
-.stat-num{font-size:32px;font-weight:700;color:var(--navy);letter-spacing:-1px;margin-bottom:4px}
-.stat-num span{color:var(--sky)}
-.stat-label{font-size:12px;color:var(--muted);letter-spacing:0.3px}
+/* ── HOME PILLARS (replaces the old stats bar) ───────── */
+.pillars-wrap{padding:0 2.5rem 4rem;max-width:1000px;margin:0 auto}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;opacity:0;animation:fu 0.9s 1s forwards}
+.pillar{text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.75rem 1.5rem;cursor:pointer;transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;position:relative;overflow:hidden}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--sky),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.pillar:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(30,45,64,0.1);border-color:var(--sky)}
+.pillar:hover::before{transform:scaleX(1)}
+.pillar-ico{font-size:24px;color:var(--teal);margin-bottom:0.9rem;display:block}
+.pillar-step{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pillar h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;letter-spacing:-0.3px}
+.pillar p{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+.pillar-link{font-size:12px;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:5px}
+.pillar:hover .pillar-link i{transform:translateX(3px)}
+.pillar-link i{transition:transform 0.2s}
 
-/* TRANSFORM */
-.transform{padding:5rem 2.5rem}
-.transform-inner{max-width:900px;margin:0 auto}
+/* ── SHARED SECTION HEADERS ──────────────────────────── */
+.view-head{padding:7rem 2.5rem 0;max-width:900px;margin:0 auto}
 .sec-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:0.75rem}
-.sec-title{font-size:36px;font-weight:700;letter-spacing:-1px;color:var(--navy);margin-bottom:0.75rem;line-height:1.2}
-.sec-sub{font-size:15px;color:var(--muted);line-height:1.75;max-width:520px;margin-bottom:2.5rem}
-.stage-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:0 4px 32px rgba(30,45,64,0.07)}
-.stage-tabs{display:flex;border-bottom:1px solid var(--border)}
-.stab{flex:1;padding:1rem 0.5rem;font-size:13px;font-weight:500;cursor:pointer;text-align:center;color:var(--muted);border:none;background:transparent;transition:all 0.2s;border-bottom:2.5px solid transparent;margin-bottom:-1px;font-family:'Inter',sans-serif}
-.stab.on{color:var(--navy);border-bottom-color:var(--blue);background:rgba(91,158,201,0.05)}
-.stab:hover:not(.on){background:var(--bg);color:var(--navy)}
-canvas#stage{display:block;width:100%;height:400px}
-.stage-foot{padding:1rem 1.5rem;font-size:13px;color:var(--muted);line-height:1.6;border-top:0.5px solid var(--border);display:flex;align-items:center;gap:10px;min-height:56px;transition:opacity 0.3s}
-.stage-foot i{font-size:17px;color:var(--teal);flex-shrink:0}
+.sec-title{font-size:40px;font-weight:800;letter-spacing:-1.3px;color:var(--navy);margin-bottom:0.9rem;line-height:1.12}
+.sec-sub{font-size:16px;color:var(--muted);line-height:1.75;max-width:560px}
 
-/* PHASES */
-.phases{padding:5rem 2.5rem;background:var(--navy)}
-.phases-inner{max-width:900px;margin:0 auto}
-.phases .sec-eyebrow{color:var(--lteal)}
-.phases .sec-title{color:#fff;margin-bottom:0.75rem}
-.phases .sec-sub{color:rgba(255,255,255,0.5);margin-bottom:3rem}
-.phases-track{display:flex;gap:0;position:relative}
-.phases-track::before{content:'';position:absolute;top:28px;left:28px;right:28px;height:1px;background:rgba(255,255,255,0.12);z-index:0}
-.phase{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 0.75rem;position:relative;z-index:1}
-.phase-num{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--lteal);margin-bottom:1rem;transition:all 0.3s;flex-shrink:0}
-.phase:hover .phase-num{background:var(--blue);border-color:var(--sky);color:#fff}
-.phase-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky);margin-bottom:6px}
-.phase-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:8px;line-height:1.3}
-.phase-desc{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6}
-.phase-connector{display:flex;align-items:center;padding-top:27px;color:rgba(255,255,255,0.2);font-size:18px;flex-shrink:0}
+/* ── OUR APPROACH: full-page scroll story ────────────── */
+.scrolly{position:relative;height:560vh}
+.scrolly-sticky{position:sticky;top:var(--navh);height:calc(100vh - var(--navh));height:calc(100svh - var(--navh));overflow:hidden;display:flex;align-items:stretch}
+/* left narrative panel */
+.scene-panel{width:38%;min-width:320px;flex-shrink:0;padding:0 1rem 0 3rem;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:3}
+.scene-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:1.5rem}
+.scene-counter{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);margin-bottom:0.85rem;transition:opacity 0.3s,transform 0.3s}
+.scene-title{font-size:clamp(32px,3.8vw,52px);font-weight:800;letter-spacing:-1.8px;line-height:1.04;color:var(--navy);margin-bottom:1.1rem;transition:opacity 0.3s,transform 0.3s}
+.scene-desc{font-size:16px;color:var(--muted);line-height:1.7;max-width:430px;transition:opacity 0.3s,transform 0.3s}
+.scene-fade{opacity:0;transform:translateY(12px)}
+.scene-steps{display:flex;gap:0.6rem;margin-top:2.75rem;max-width:430px}
+.scene-step{flex:1;cursor:pointer}
+.scene-step .bar{height:4px;border-radius:3px;background:var(--border);overflow:hidden;position:relative}
+.scene-step .bar i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--sky),var(--blue));border-radius:3px;transition:width 0.15s linear}
+.scene-step .lbl{font-size:10.5px;font-weight:600;color:var(--muted);margin-top:9px;letter-spacing:0.3px;transition:color 0.3s}
+.scene-step.on .lbl{color:var(--navy);font-weight:700}
+/* right visual stage */
+.scene-stage{flex:1;position:relative;min-width:0}
+canvas#stage{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scroll-hint{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:opacity 0.4s;pointer-events:none;z-index:4}
+.scroll-hint i{font-size:16px;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
-/* SERVICES */
-.services{padding:5rem 2.5rem;background:var(--bg)}
-.services-inner{max-width:900px;margin:0 auto}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--border);border-radius:12px;overflow:hidden;border:1px solid var(--border)}
-.svc{padding:1.75rem 1.5rem;background:var(--surface);transition:background 0.25s}
-.svc:hover{background:#EEF5F8}
-.svc-num{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:1.5px;margin-bottom:0.6rem}
-.svc-icon{font-size:22px;color:var(--teal);margin-bottom:0.75rem;display:block}
-.svc h3{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:8px}
-.svc p{font-size:12px;color:var(--muted);line-height:1.65}
+/* ── OUR PROCESS: alternating timeline ───────────────── */
+.timeline{position:relative;max-width:920px;margin:2.5rem auto 0;padding:0 2.5rem}
+.timeline::before{content:'';position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:2px;background:linear-gradient(var(--pale),var(--lteal),var(--sky),var(--blue),var(--navy))}
+.tl-row{display:grid;grid-template-columns:1fr 56px 1fr;align-items:center;gap:0;margin-bottom:2.25rem;position:relative}
+.tl-row:last-child{margin-bottom:0}
+.tl-node{grid-column:2;justify-self:center;width:54px;height:54px;border-radius:50%;background:var(--surface);border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:var(--blue);z-index:2;box-shadow:0 4px 16px rgba(30,45,64,0.08);transition:all 0.3s}
+.tl-row.vis .tl-node{background:var(--blue);color:#fff;box-shadow:0 6px 20px rgba(43,95,142,0.35)}
+.tl-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;box-shadow:0 6px 28px rgba(30,45,64,0.06);transition:transform 0.3s,box-shadow 0.3s}
+.tl-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(30,45,64,0.12)}
+.tl-row:nth-child(odd) .tl-card{grid-column:1}
+.tl-row:nth-child(even) .tl-card{grid-column:3}
+.tl-art{grid-row:1;align-self:center;display:flex;align-items:center;justify-content:center;padding:0.5rem 1.25rem}
+.tl-row:nth-child(odd) .tl-art{grid-column:3}
+.tl-row:nth-child(even) .tl-art{grid-column:1}
+.tl-art svg{width:100%;max-width:200px;height:auto;display:block}
+.tl-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.tl-card h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px;letter-spacing:-0.3px}
+.tl-card p{font-size:13px;color:var(--muted);line-height:1.65}
+/* timeline reveal */
+.tl-row{opacity:0;transform:translateY(28px);transition:opacity 0.7s,transform 0.7s}
+.tl-row.vis{opacity:1;transform:none}
+/* infographic helper animations */
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes growbar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ig-bar{transform-box:fill-box;transform-origin:center bottom}
+.ig-spin{transform-box:fill-box;transform-origin:center}
+.tl-row.vis .ig-bar{animation:growbar 0.8s ease forwards}
+.tl-row.vis .ig-line{stroke-dasharray:240;stroke-dashoffset:240;animation:dash 1.1s 0.2s ease forwards}
+.ig-spin{animation:spin 9s linear infinite}
 
-/* PACKAGES */
-.packages{padding:5rem 2.5rem;background:var(--surface)}
-.packages-inner{max-width:900px;margin:0 auto}
-.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:2.5rem}
-.pkg{border-radius:12px;border:1px solid var(--border);background:var(--bg);padding:1.75rem 1.5rem;transition:transform 0.25s,box-shadow 0.25s;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.pkg::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+/* ── SERVICE & PACKAGES ──────────────────────────────── */
+.sp-wrap{max-width:1040px;margin:0 auto;padding:0 2.5rem}
+.sp-block{margin-top:2.5rem}
+.sp-sub-head{margin-bottom:1.75rem}
+.sp-sub-head .sec-eyebrow{margin-bottom:0.6rem}
+.sp-sub-head h3{font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--navy);line-height:1.15;margin-bottom:0.6rem}
+.sp-sub-head p{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px}
+
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.svc{padding:1.6rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:14px;transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;display:flex;flex-direction:column}
+.svc:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(30,45,64,0.09);border-color:var(--sky)}
+.svc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.9rem}
+.svc-icon{font-size:24px;color:var(--teal);display:block;width:46px;height:46px;line-height:46px;text-align:center;background:rgba(74,138,156,0.09);border-radius:11px}
+.svc-num{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1.5px}
+.svc h3{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:8px;letter-spacing:-0.2px}
+.svc p{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
+.pkg{border-radius:16px;border:1px solid var(--border);background:var(--surface);padding:1.6rem 1.4rem;transition:transform 0.25s,box-shadow 0.25s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.pkg::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
 .pkg.p1::before{background:var(--pale)}
 .pkg.p2::before{background:var(--lteal)}
 .pkg.p3::before{background:linear-gradient(90deg,var(--sky),var(--blue))}
 .pkg.p4::before{background:var(--navy)}
-.pkg:hover{transform:translateY(-5px);box-shadow:0 8px 32px rgba(30,45,64,0.1)}
-.pkg.p3{border-color:var(--sky);background:var(--surface)}
-.pkg-tier{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem}
+.pkg:hover{transform:translateY(-6px);box-shadow:0 14px 38px rgba(30,45,64,0.11)}
+.pkg.p3{border-color:var(--sky);box-shadow:0 8px 30px rgba(91,158,201,0.18)}
+.pkg-flag{position:absolute;top:12px;right:12px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--blue);padding:3px 9px;border-radius:20px}
+.pkg-tier{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;margin-top:0.4rem}
 .pkg.p3 .pkg-tier{color:var(--blue)}
 .pkg.p4 .pkg-tier{color:var(--navy)}
-.pkg-name{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:0.75rem;letter-spacing:-0.3px}
-.pkg-desc{font-size:12px;color:var(--muted);line-height:1.6;padding-bottom:1rem;border-bottom:0.5px solid var(--border);margin-bottom:1rem}
-.pkg-list{list-style:none;display:flex;flex-direction:column;gap:6px;flex:1}
-.pkg-list li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:7px;line-height:1.45}
-.pkg-list li i{color:var(--teal);font-size:12px;flex-shrink:0;margin-top:2px}
-.pkg-cta{margin-top:1.5rem;padding:10px;font-size:12px;font-weight:600;text-align:center;border:1px solid var(--border);border-radius:6px;cursor:pointer;color:var(--muted);background:transparent;transition:all 0.2s;font-family:'Inter',sans-serif}
+.pkg-name{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:0.6rem;letter-spacing:-0.3px}
+.pkg-desc{font-size:12.5px;color:var(--muted);line-height:1.6;padding-bottom:1rem;border-bottom:0.5px solid var(--border);margin-bottom:1rem;min-height:78px}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:7px;flex:1}
+.pkg-list li{font-size:12.5px;color:var(--muted);display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.pkg-list li i{color:var(--teal);font-size:13px;flex-shrink:0;margin-top:2px}
+.pkg-cta{margin-top:1.5rem;padding:11px;font-size:12.5px;font-weight:700;text-align:center;border:1px solid var(--border);border-radius:8px;cursor:pointer;color:var(--navy);background:transparent;transition:all 0.2s;font-family:'Inter',sans-serif}
 .pkg-cta:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 .pkg.p3 .pkg-cta{background:var(--navy);color:#fff;border-color:var(--navy)}
 .pkg.p3 .pkg-cta:hover{background:var(--blue)}
 
-/* CTA */
-.cta{padding:7rem 2.5rem;text-align:center;background:var(--navy);position:relative;overflow:hidden}
+/* ── CTA (global) ────────────────────────────────────── */
+.cta{padding:7rem 2.5rem;text-align:center;background:var(--navy);position:relative;overflow:hidden;margin-top:4rem}
 canvas#ctac{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
-.cta h2{font-size:42px;font-weight:700;letter-spacing:-1.5px;color:#fff;margin-bottom:1rem;position:relative;z-index:1}
-.cta p{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:2.5rem;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.75;position:relative;z-index:1}
-.cta-btn{padding:15px 40px;font-size:15px;font-weight:600;background:#fff;color:var(--navy);border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;position:relative;z-index:1;font-family:'Inter',sans-serif}
+.cta h2{font-size:42px;font-weight:800;letter-spacing:-1.5px;color:#fff;margin-bottom:1rem;position:relative;z-index:1}
+.cta p{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:2.5rem;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.75;position:relative;z-index:1}
+.cta-actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;position:relative;z-index:1}
+.cta-btn{padding:15px 38px;font-size:15px;font-weight:600;background:#fff;color:var(--navy);border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;text-decoration:none;display:inline-flex;align-items:center}
 .cta-btn:hover{background:var(--sky);color:#fff;transform:translateY(-2px)}
+.cta-btn.secondary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35)}
+.cta-btn.secondary:hover{background:rgba(255,255,255,0.12);color:#fff;transform:translateY(-2px)}
+.cta-btn i{margin-right:7px;vertical-align:-2px}
 
-/* FOOTER */
-.footer{padding:2rem 2.5rem;background:var(--navy);border-top:0.5px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.f-logo-text{font-size:15px;font-weight:700;color:#fff}
+/* ── FOOTER (global) ─────────────────────────────────── */
+.footer{padding:2.25rem 2.5rem;background:var(--navy);border-top:0.5px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem}
+.f-brand{display:flex;flex-direction:column;gap:6px}
+.f-logo-row{display:flex;align-items:center;gap:9px}
+.f-logo-text{font-size:16px;font-weight:800;color:#fff}
 .f-logo-text span{color:var(--sky)}
-.f-tagline{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:3px}
-.f-right{font-size:12px;color:rgba(255,255,255,0.35)}
+.f-tagline{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.f-nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+.f-nav a{font-size:12px;color:rgba(255,255,255,0.55);text-decoration:none;cursor:pointer;transition:color 0.2s}
+.f-nav a:hover{color:#fff}
+.f-right{font-size:12px;color:rgba(255,255,255,0.35);text-align:right}
 .f-right a{color:var(--lteal);text-decoration:none}
 
 @keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
@@ -188,360 +245,584 @@ canvas#ctac{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events
 .rev.vis{opacity:1;transform:none}
 .d1{transition-delay:0.08s}.d2{transition-delay:0.16s}.d3{transition-delay:0.24s}.d4{transition-delay:0.32s}
 
-/* ── RESPONSIVE ─────────────────────────────────────── */
+/* ── RESPONSIVE ──────────────────────────────────────── */
 @media(max-width:900px){
-  .phases-track{flex-wrap:wrap;gap:1.5rem}
-  .phases-track::before{display:none}
-  .phase-connector{display:none}
-  .phase{flex:1 1 40%;align-items:center;text-align:center}
+  .scrolly{height:480vh}
+  .scrolly-sticky{flex-direction:column}
+  .scene-panel{width:100%;min-width:0;flex:0 0 auto;padding:1.4rem 1.5rem 0.8rem;justify-content:flex-start;background:linear-gradient(var(--bg),rgba(244,247,249,0.6))}
+  .scene-title{font-size:clamp(26px,6vw,36px);letter-spacing:-1px;margin-bottom:0.7rem}
+  .scene-desc{font-size:14px;max-width:none}
+  .scene-eyebrow{margin-bottom:0.9rem}
+  .scene-steps{margin-top:1.4rem;max-width:none}
+  .scene-stage{width:100%;flex:1;min-height:340px}
+  /* timeline → single column */
+  .timeline{padding:0 1rem}
+  .timeline::before{left:27px}
+  .tl-row{grid-template-columns:54px 1fr;gap:1rem;margin-bottom:1.5rem}
+  .tl-node{grid-column:1;justify-self:center}
+  .tl-row:nth-child(odd) .tl-card,.tl-row:nth-child(even) .tl-card{grid-column:2}
+  .tl-art{display:none}
+  .pillars{grid-template-columns:1fr;gap:12px}
 }
-@media(max-width:640px){
-  /* NAV */
-  .nav{padding:0.75rem 1rem}
-  .nav-links{display:none}
-  .logo-text{font-size:15px}
-  .nav-cta{padding:6px 12px;font-size:12px}
-
-  /* HERO */
-  .hero{min-height:auto;padding:5.5rem 1.25rem 2.5rem}
-  .hero h1{font-size:34px;letter-spacing:-1.5px}
-  .hero-sub{font-size:14px;margin-bottom:2rem}
-  .hero-btns{flex-direction:column;align-items:center;gap:10px}
-  .btn-main,.btn-out{width:100%;max-width:260px;text-align:center;padding:12px 20px}
-  .scroll-ind{display:none}
-
-  /* STATS */
-  .stats-wrap{padding:0 1rem}
-  .stats{display:grid;grid-template-columns:1fr 1fr;border-radius:10px}
-  .stat-card{border-right:none;border-bottom:0.5px solid var(--border);padding:1.25rem 0.75rem}
-  .stat-card:nth-child(odd){border-right:0.5px solid var(--border)}
-  .stat-card:nth-child(3),.stat-card:nth-child(4){border-bottom:none}
-  .stat-num{font-size:26px}
-  .stat-label{font-size:11px}
-
-  /* TRANSFORM */
-  .transform{padding:2.5rem 1rem}
-  .transform-inner{max-width:100%}
-  .sec-title{font-size:24px;letter-spacing:-0.5px}
-  .sec-sub{font-size:13px;margin-bottom:1.5rem}
-  .sec-eyebrow{font-size:9px}
-  .stage-wrap{border-radius:10px}
-  .stage-tabs{overflow-x:auto}
-  .stab{font-size:11px;padding:0.75rem 0.5rem;white-space:nowrap;min-width:70px}
-  canvas#stage{height:460px}
-  .stage-foot{font-size:12px;padding:0.875rem 1rem}
-
-  /* PHASES */
-  .phases{padding:2.5rem 1rem}
-  .phases-track{flex-direction:column;gap:0}
-  .phases-track::before{display:none}
-  .phase-connector{display:none}
-  .phase{flex-direction:row;text-align:left;align-items:flex-start;gap:0.875rem;padding:1rem 0;border-bottom:0.5px solid rgba(255,255,255,0.07)}
-  .phase:last-child{border-bottom:none}
-  .phase-num{width:40px;height:40px;flex-shrink:0;font-size:15px;margin-bottom:0}
-  .phase-label{font-size:9px;margin-bottom:3px}
-  .phase-title{font-size:13px;margin-bottom:4px}
-  .phase-desc{font-size:11px;line-height:1.5}
-
-  /* SERVICES */
-  .services{padding:2.5rem 1rem}
-  .svc-grid{grid-template-columns:1fr;gap:1px}
-  .svc{padding:1.25rem 1rem}
-  .svc-icon{font-size:18px;margin-bottom:0.5rem}
-  .svc h3{font-size:13px}
-  .svc p{font-size:11px}
-
-  /* PACKAGES */
-  .packages{padding:2.5rem 1rem}
-  .pkg-grid{grid-template-columns:1fr;gap:12px}
-  .pkg{padding:1.25rem 1rem}
-  .pkg-name{font-size:16px}
-  .pkg-desc{font-size:11px}
-  .pkg-list li{font-size:11px}
-
-  /* CTA */
-  .cta{padding:3.5rem 1.25rem}
-  .cta h2{font-size:26px;letter-spacing:-0.5px}
-  .cta p{font-size:14px;margin-bottom:2rem}
-  .cta-btn{padding:13px 28px;font-size:14px}
-
-  /* FOOTER */
-  .footer{flex-direction:column;align-items:flex-start;gap:0.5rem;padding:1.25rem 1rem}
-  .f-logo-text{font-size:14px}
-  .f-right{font-size:11px}
-}
-
-/* ── TABLET ── */
 @media(min-width:641px) and (max-width:900px){
   .nav-links a{font-size:12px}
   .hero h1{font-size:48px}
-  .stats-wrap{padding:0 1.5rem}
-  .transform,.services,.packages,.phases,.cta{padding:4rem 1.5rem}
-  .phases-track{flex-wrap:wrap;gap:1.5rem}
-  .phases-track::before{display:none}
-  .phase-connector{display:none}
-  .phase{flex:1 1 calc(33% - 1rem);align-items:center;text-align:center}
-  canvas#stage{height:360px}
+  .view-head{padding-top:6rem}
+  .sp-wrap{padding:0 1.5rem}
   .pkg-grid{grid-template-columns:1fr 1fr}
   .svc-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  :root{--navh:56px}
+  .nav{padding:0.6rem 1.1rem}
+  .nav-links{display:none}
+  .nav-burger{display:block}
+  .logo-text{font-size:16px}
+  .nav-cta{display:none}
+  /* mobile menu */
+  .mobile-menu{display:block;position:fixed;top:var(--navh);left:0;right:0;z-index:99;background:rgba(244,247,249,0.98);backdrop-filter:blur(14px);border-bottom:0.5px solid var(--border);transform:translateY(-130%);transition:transform 0.3s ease;padding:0.5rem 1.1rem 1rem}
+  .mobile-menu.open{transform:translateY(0)}
+  .mobile-menu a{display:block;padding:0.9rem 0.25rem;font-size:15px;color:var(--navy);text-decoration:none;border-bottom:0.5px solid var(--border);font-weight:500}
+  .mobile-menu a:last-child{border-bottom:none}
+  .mobile-menu a.active{color:var(--blue);font-weight:700}
+  .mobile-menu .mm-cta{margin-top:0.75rem;background:var(--navy);color:#fff;border-radius:8px;text-align:center;border:none;font-weight:600}
+
+  .hero{min-height:auto;padding:5rem 1.25rem 1.5rem}
+  .hero h1{font-size:36px;letter-spacing:-1.5px}
+  .hero-sub{font-size:14px;margin-bottom:2rem}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px}
+  .btn-main,.btn-out{width:100%;max-width:280px;text-align:center;padding:12px 20px}
+  .pillars-wrap{padding:0 1.1rem 3rem}
+  .pillar{padding:1.4rem 1.25rem}
+
+  .view-head{padding:5rem 1.25rem 0}
+  .sec-title{font-size:28px;letter-spacing:-0.8px}
+  .sec-sub{font-size:14px}
+
+  .scrolly{height:420vh}
+  .scene-panel{padding:1.2rem 1.25rem 0.7rem}
+  .scene-stage{min-height:300px}
+
+  .timeline{margin-top:1.5rem}
+  .tl-card{padding:1.2rem}
+  .tl-card h3{font-size:15px}
+  .tl-card p{font-size:12px}
+
+  .sp-wrap{padding:0 1.25rem}
+  .sp-sub-head h3{font-size:23px}
+  .svc-grid{grid-template-columns:1fr;gap:12px}
+  .svc{padding:1.25rem 1.25rem}
+  .pkg-grid{grid-template-columns:1fr;gap:12px}
+  .pkg-desc{min-height:0}
+
+  .cta{padding:4rem 1.25rem;margin-top:2.5rem}
+  .cta h2{font-size:28px;letter-spacing:-0.6px}
+  .cta p{font-size:14px;margin-bottom:2rem}
+  .cta-actions{flex-direction:column}
+  .cta-actions .cta-btn{width:100%;max-width:300px;justify-content:center}
+
+  .footer{flex-direction:column;align-items:flex-start;gap:1.25rem;padding:1.75rem 1.25rem}
+  .f-right{text-align:left}
+}
+/* small phones */
+@media(max-width:400px){
+  .hero h1{font-size:31px}
+  .scene-title{font-size:24px;letter-spacing:-0.6px}
+  .scene-desc{font-size:13px;line-height:1.6}
+  .scene-eyebrow{font-size:10px;letter-spacing:2px;margin-bottom:0.7rem}
+  .scene-step .lbl{font-size:9.5px}
+  .scene-steps{gap:0.45rem}
+  .pillar h3{font-size:16px}
+  .tl-node{width:46px;height:46px;font-size:14px}
+  .timeline::before{left:23px}
+  .tl-row{grid-template-columns:46px 1fr;gap:0.8rem}
+}
+/* short/landscape phones: keep the story usable when height is tight */
+@media(max-height:560px) and (max-width:900px){
+  .scrolly-sticky{flex-direction:row;align-items:stretch}
+  .scene-panel{width:42%;min-width:0;justify-content:center;padding:0.75rem 0.9rem;background:none}
+  .scene-title{font-size:20px;margin-bottom:0.5rem}
+  .scene-desc{font-size:12px;-webkit-line-clamp:4}
+  .scene-steps{margin-top:1rem}
+  .scene-stage{min-height:0}
 }
 
 /* ── ACCESSIBILITY ── */
 .skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:var(--navy);color:#fff;padding:10px 18px;border-radius:0 0 8px 0;font-size:13px;font-weight:600;text-decoration:none}
 .skip-link:focus{left:0}
-a:focus-visible,button:focus-visible,.stab:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
 
-/* CTA dual-button layout */
-.cta-actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;position:relative;z-index:1}
-.cta-btn.secondary{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35)}
-.cta-btn.secondary:hover{background:rgba(255,255,255,0.12);color:#fff;transform:translateY(-2px)}
-.cta-btn i{margin-right:7px;vertical-align:-2px}
-.f-contact{font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px}
-.f-contact a{color:var(--lteal);text-decoration:none}
-
-@media(max-width:640px){
-  .cta-actions{flex-direction:column}
-  .cta-actions .cta-btn{width:100%;max-width:300px}
-}
-
-/* ── REDUCED MOTION: honour user/OS preference ── */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto}
-  .hero-eyebrow,.hero h1,.hero-sub,.hero-btns,.scroll-ind{opacity:1!important;animation:none!important;transform:none!important}
+  .hero-eyebrow,.hero h1,.hero-sub,.hero-btns,.pillars{opacity:1!important;animation:none!important;transform:none!important}
   .hero h1 .hl::after{width:100%!important;animation:none!important}
   .rev{opacity:1!important;transform:none!important}
 }
 </style>
 </head>
 <body>
-<a href="#sec-hero" class="skip-link">Skip to content</a>
+<a href="#main" class="skip-link">Skip to content</a>
 <canvas id="bgc" aria-hidden="true"></canvas>
 <div class="page">
 
 <!-- NAV -->
 <nav class="nav">
-  <a class="logo-wrap" href="#sec-hero">
-    <img id="navLogo" alt="Figurelise" style="height:38px;width:auto;display:block;">
+  <a class="logo-wrap" data-route="home" href="#/home" aria-label="Figurelise — home">
+    <svg class="logo-mark" width="34" height="26" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="0"  y="20" width="7" height="10" rx="1.5" fill="#C5DCE6"/>
+      <rect x="9"  y="13" width="7" height="17" rx="1.5" fill="#8BBFCC"/>
+      <rect x="18" y="7"  width="7" height="23" rx="1.5" fill="#5B9EC9"/>
+      <rect x="27" y="0"  width="7" height="30" rx="1.5" fill="#2B5F8E"/>
+    </svg>
+    <span class="logo-text">Figure<span>lise</span></span>
   </a>
   <div class="nav-links">
-    <a href="#sec-transform">Our Approach</a>
-    <a href="#sec-phases">Our Process</a>
-    <a href="#sec-services">Services</a>
-    <a href="#sec-packages">Packages</a>
+    <a data-route="approach" href="#/approach">Our Approach</a>
+    <a data-route="process" href="#/process">Our Process</a>
+    <a data-route="services" href="#/services">Service &amp; Packages</a>
   </div>
-  <button class="nav-cta" onclick="document.getElementById('sec-cta').scrollIntoView({behavior:'smooth'})">Get in touch</button>
+  <button class="nav-cta" data-route="contact">Get in touch</button>
+  <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 </nav>
-
-<!-- HERO -->
-<section class="hero" id="sec-hero">
-  <div class="hero-eyebrow">Figurelise Sdn Bhd &middot; Visualise Your Business</div>
-  <h1>From <span class="hl">chaos</span><br>to clarity.</h1>
-  <p class="hero-sub">Your business data exists. It's scattered, disconnected, invisible. We bring it together — structured, visualised, and decision-ready.</p>
-  <div class="hero-btns">
-    <button class="btn-main" onclick="document.getElementById('sec-transform').scrollIntoView({behavior:'smooth'})">See how it works</button>
-    <button class="btn-out" onclick="document.getElementById('sec-packages').scrollIntoView({behavior:'smooth'})">View packages &rarr;</button>
-  </div>
-  <div class="scroll-ind"><div class="scroll-line"></div><div class="scroll-txt">scroll</div></div>
-</section>
-
-<!-- STATS -->
-<div class="stats-wrap rev">
-  <div class="stats">
-    <div class="stat-card"><div class="stat-num">6<span>+</span></div><div class="stat-label">Service Areas</div></div>
-    <div class="stat-card"><div class="stat-num">10<span>+</span></div><div class="stat-label">Business Domains</div></div>
-    <div class="stat-card"><div class="stat-num">1<span>&times;</span></div><div class="stat-label">Unified ERP Platform</div></div>
-    <div class="stat-card"><div class="stat-num">360<span>&deg;</span></div><div class="stat-label">Business Visibility</div></div>
-  </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a data-route="home" href="#/home">Home</a>
+  <a data-route="approach" href="#/approach">Our Approach</a>
+  <a data-route="process" href="#/process">Our Process</a>
+  <a data-route="services" href="#/services">Service &amp; Packages</a>
+  <a class="mm-cta" data-route="contact">Get in touch</a>
 </div>
 
-<!-- TRANSFORM: Chaos → Structure → Clarity → Action -->
-<section class="transform" id="sec-transform">
-  <div class="transform-inner">
-    <div class="sec-eyebrow rev">Visualise your business</div>
-    <h2 class="sec-title rev">From noise to decisions.</h2>
-    <p class="sec-sub rev">Every business is dealing with the same complexity. We bring it all into one clear picture — and tell you exactly what to do next.</p>
-    <div class="stage-wrap rev">
-      <div class="stage-tabs" role="tablist" aria-label="Business data visualisation stages">
-        <button class="stab on" data-s="chaos" role="tab" aria-selected="true" aria-controls="stage"><i class="ti ti-tornado" aria-hidden="true"></i> Chaos</button>
-        <button class="stab" data-s="structure" role="tab" aria-selected="false" aria-controls="stage"><i class="ti ti-layout-columns" aria-hidden="true"></i> Structure</button>
-        <button class="stab" data-s="clarity" role="tab" aria-selected="false" aria-controls="stage"><i class="ti ti-chart-bar" aria-hidden="true"></i> Clarity</button>
-        <button class="stab" data-s="action" role="tab" aria-selected="false" aria-controls="stage"><i class="ti ti-bolt" aria-hidden="true"></i> Action</button>
-      </div>
-      <canvas id="stage" role="img" aria-label="Animated visualisation: scattered business data is sorted into domains, turned into dashboards, and finally into recommended actions."></canvas>
-      <div class="stage-foot" id="sfoot" aria-live="polite">
-        <i class="ti ti-alert-circle" aria-hidden="true"></i>
-        <span>Every business drowns in data — revenue, costs, compliance, payroll, AR, AP — all scattered with no clear picture.</span>
-      </div>
+<main id="main">
+
+<!-- ════════════ VIEW: HOME ════════════ -->
+<section class="view view-home" data-view="home" role="region" aria-label="Home">
+  <div class="hero">
+    <div class="hero-eyebrow">Figurelise Sdn Bhd &middot; Visualise Your Business</div>
+    <h1>From <span class="hl">chaos</span><br>to clarity.</h1>
+    <p class="hero-sub">Your business data already exists — scattered, disconnected, invisible. We bring it together: structured, visualised, and decision-ready, on one unified platform.</p>
+    <div class="hero-btns">
+      <button class="btn-main" data-route="approach">See how it works</button>
+      <button class="btn-out" data-route="services">Service &amp; Packages &rarr;</button>
+    </div>
+  </div>
+
+  <!-- Pillars replace the removed stats strip with real navigation -->
+  <div class="pillars-wrap">
+    <div class="pillars">
+      <button class="pillar" data-route="approach">
+        <i class="ti ti-chart-dots-3 pillar-ico"></i>
+        <div class="pillar-step">01 — The idea</div>
+        <h3>Our Approach</h3>
+        <p>Watch scattered data move from chaos to structure, clarity and decisive action — the philosophy behind everything we build.</p>
+        <span class="pillar-link">Explore the story <i class="ti ti-arrow-right"></i></span>
+      </button>
+      <button class="pillar" data-route="process">
+        <i class="ti ti-route pillar-ico"></i>
+        <div class="pillar-step">02 — The journey</div>
+        <h3>Our Process</h3>
+        <p>A structured five-phase engagement — from first conversation to live dashboards and ongoing advisory.</p>
+        <span class="pillar-link">See the process <i class="ti ti-arrow-right"></i></span>
+      </button>
+      <button class="pillar" data-route="services">
+        <i class="ti ti-package pillar-ico"></i>
+        <div class="pillar-step">03 — The offer</div>
+        <h3>Service &amp; Packages</h3>
+        <p>Six integrated service lenses and four packages scaled to where your business is — and where it's going.</p>
+        <span class="pillar-link">View what's included <i class="ti ti-arrow-right"></i></span>
+      </button>
     </div>
   </div>
 </section>
 
-<!-- PHASES: Our Process -->
-<section class="phases" id="sec-phases">
-  <div class="phases-inner">
-    <div class="sec-eyebrow rev">Our process</div>
-    <h2 class="sec-title rev">How we work with you.</h2>
-    <p class="sec-sub rev">A structured engagement built around your business — from first conversation to ongoing advisory.</p>
-    <div class="phases-track">
-      <div class="phase rev">
-        <div class="phase-num"><i class="ti ti-search"></i></div>
-        <div class="phase-label">Phase 1</div>
-        <div class="phase-title">Understanding</div>
-        <div class="phase-desc">We deep-dive into your business — operations, financials, pain points, and goals. No assumptions.</div>
-      </div>
-      <div class="phase-connector rev d1"><i class="ti ti-chevron-right"></i></div>
-      <div class="phase rev d1">
-        <div class="phase-num"><i class="ti ti-map"></i></div>
-        <div class="phase-label">Phase 2</div>
-        <div class="phase-title">Mapping</div>
-        <div class="phase-desc">We map your data flows, identify gaps, and design the structure — accounts, workflows, reporting hierarchy.</div>
-      </div>
-      <div class="phase-connector rev d2"><i class="ti ti-chevron-right"></i></div>
-      <div class="phase rev d2">
-        <div class="phase-num"><i class="ti ti-settings"></i></div>
-        <div class="phase-label">Phase 3</div>
-        <div class="phase-title">Build & Implement</div>
-        <div class="phase-desc">We configure the system, migrate data, set up approval workflows, and go live with full training.</div>
-      </div>
-      <div class="phase-connector rev d3"><i class="ti ti-chevron-right"></i></div>
-      <div class="phase rev d3">
-        <div class="phase-num"><i class="ti ti-eye"></i></div>
-        <div class="phase-label">Phase 4</div>
-        <div class="phase-title">Visualise</div>
-        <div class="phase-desc">Dashboards go live. KPIs are tracked. Management has real-time visibility into every corner of the business.</div>
-      </div>
-      <div class="phase-connector rev d4"><i class="ti ti-chevron-right"></i></div>
-      <div class="phase rev d4">
-        <div class="phase-num"><i class="ti ti-refresh"></i></div>
-        <div class="phase-label">Phase 5</div>
-        <div class="phase-title">Optimise & Advise</div>
-        <div class="phase-desc">We stay. Monthly reviews, compliance monitoring, advisory, and continuous improvement as your business grows.</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ════════════ VIEW: OUR APPROACH (full-page scroll story) ════════════ -->
+<section class="view view-approach" data-view="approach" role="region" aria-label="Our Approach">
+  <div class="scrolly" id="scrollyWrap">
+    <div class="scrolly-sticky">
 
-<!-- SERVICES -->
-<section class="services" id="sec-services">
-  <div class="services-inner">
-    <div class="sec-eyebrow rev">What we do</div>
-    <h2 class="sec-title rev">Six lenses to see<br>your business clearly.</h2>
-    <p class="sec-sub rev">An integrated suite of services — not just an accountant, but your full finance and operations partner.</p>
-    <div class="svc-grid rev">
-      <div class="svc"><div class="svc-num">01</div><i class="ti ti-report-money svc-icon"></i><h3>Accounting &amp; Finance</h3><p>Full-set accounting, bank reconciliation, monthly closing, cash flow monitoring, and management accounts.</p></div>
-      <div class="svc"><div class="svc-num">02</div><i class="ti ti-certificate svc-icon"></i><h3>Tax &amp; Compliance</h3><p>Corporate tax, SST, e-Invoice, MBRS submission, and coordination with auditors and tax agents.</p></div>
-      <div class="svc"><div class="svc-num">03</div><i class="ti ti-users svc-icon"></i><h3>Payroll &amp; HR Admin</h3><p>Automated payroll, EPF/SOCSO/PCB/EIS submissions, leave management, and employee records.</p></div>
-      <div class="svc"><div class="svc-num">04</div><i class="ti ti-sitemap svc-icon"></i><h3>Workflow Advisory</h3><p>SOP structuring, delegation of authority, approval workflows, and process improvement to remove bottlenecks.</p></div>
-      <div class="svc"><div class="svc-num">05</div><i class="ti ti-chart-line svc-icon"></i><h3>Business Reporting &amp; KPI</h3><p>Real-time dashboards, profitability analysis, cash flow forecasting, and management reports that drive action.</p></div>
-      <div class="svc"><div class="svc-num">06</div><i class="ti ti-device-desktop svc-icon"></i><h3>ERP Implementation</h3><p>End-to-end Odoo setup — module configuration, data migration, user training, and ongoing system support.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PACKAGES -->
-<section class="packages" id="sec-packages">
-  <div class="packages-inner">
-    <div class="sec-eyebrow rev">Packages</div>
-    <h2 class="sec-title rev">Built for where you are<br>and where you're going.</h2>
-    <p class="sec-sub rev">Each package is designed around a stage of business maturity. Pricing is tailored — reach out for a conversation.</p>
-    <div class="pkg-grid">
-
-      <div class="pkg p1 rev">
-        <div class="pkg-tier">Entry Level</div>
-        <div class="pkg-name">Essentials</div>
-        <div class="pkg-desc">For new or small businesses that need a proper financial foundation and statutory compliance from day one.</div>
-        <ul class="pkg-list">
-          <li><i class="ti ti-check"></i>Full-set bookkeeping</li>
-          <li><i class="ti ti-check"></i>Bank reconciliation</li>
-          <li><i class="ti ti-check"></i>Monthly management accounts</li>
-          <li><i class="ti ti-check"></i>Payroll processing</li>
-          <li><i class="ti ti-check"></i>EPF / SOCSO / PCB / EIS</li>
-          <li><i class="ti ti-check"></i>Annual tax computation</li>
-          <li><i class="ti ti-check"></i>MBRS &amp; draft financials</li>
-          <li><i class="ti ti-check"></i>Auditor coordination</li>
-        </ul>
-        <button class="pkg-cta" onclick="document.getElementById('sec-cta').scrollIntoView({behavior:'smooth'})">Enquire now</button>
+      <!-- Narrative panel (the story) -->
+      <div class="scene-panel">
+        <div class="scene-eyebrow">Visualise your business</div>
+        <div class="scene-counter" id="sceneCounter">01 — Chaos</div>
+        <h2 class="scene-title" id="sceneTitle">It starts as chaos.</h2>
+        <p class="scene-desc" id="sceneDesc">Revenue, costs, compliance, payroll, receivables, payables — every business runs on data that's scattered, disconnected, and impossible to read at a glance.</p>
+        <div class="scene-steps" id="sceneSteps">
+          <div class="scene-step on" data-step="chaos"><div class="bar"><i></i></div><div class="lbl">Chaos</div></div>
+          <div class="scene-step" data-step="structure"><div class="bar"><i></i></div><div class="lbl">Structure</div></div>
+          <div class="scene-step" data-step="clarity"><div class="bar"><i></i></div><div class="lbl">Visualise</div></div>
+          <div class="scene-step" data-step="action"><div class="bar"><i></i></div><div class="lbl">Action</div></div>
+        </div>
       </div>
 
-      <div class="pkg p2 rev d1">
-        <div class="pkg-tier">Fundamental</div>
-        <div class="pkg-name">Foundation</div>
-        <div class="pkg-desc">For growing businesses ready to build structure into their operations and gain real financial visibility.</div>
-        <ul class="pkg-list">
-          <li><i class="ti ti-check"></i>Everything in Essentials</li>
-          <li><i class="ti ti-check"></i>Cash flow monitoring</li>
-          <li><i class="ti ti-check"></i>SST &amp; e-Invoice support</li>
-          <li><i class="ti ti-check"></i>SOP &amp; workflow design</li>
-          <li><i class="ti ti-check"></i>Approval workflow setup</li>
-          <li><i class="ti ti-check"></i>Basic KPI dashboard</li>
-          <li><i class="ti ti-check"></i>AR / AP monitoring</li>
-          <li><i class="ti ti-check"></i>Claims management</li>
-        </ul>
-        <button class="pkg-cta" onclick="document.getElementById('sec-cta').scrollIntoView({behavior:'smooth'})">Enquire now</button>
-      </div>
-
-      <div class="pkg p3 rev d2">
-        <div class="pkg-tier">Comprehensive</div>
-        <div class="pkg-name">Clarity</div>
-        <div class="pkg-desc">For businesses that want full operational visibility, structured reporting, and management-ready dashboards.</div>
-        <ul class="pkg-list">
-          <li><i class="ti ti-check"></i>Everything in Foundation</li>
-          <li><i class="ti ti-check"></i>Full KPI dashboard suite</li>
-          <li><i class="ti ti-check"></i>Profitability &amp; margin analysis</li>
-          <li><i class="ti ti-check"></i>Budget vs actual reporting</li>
-          <li><i class="ti ti-check"></i>Department performance tracking</li>
-          <li><i class="ti ti-check"></i>Working capital analysis</li>
-          <li><i class="ti ti-check"></i>Tax planning &amp; advisory</li>
-          <li><i class="ti ti-check"></i>Odoo ERP basic modules</li>
-        </ul>
-        <button class="pkg-cta" onclick="document.getElementById('sec-cta').scrollIntoView({behavior:'smooth'})">Enquire now</button>
-      </div>
-
-      <div class="pkg p4 rev d3">
-        <div class="pkg-tier">Full Package</div>
-        <div class="pkg-name">Enterprise</div>
-        <div class="pkg-desc">For scaling or multi-entity businesses that need a fully integrated operating system and strategic advisory.</div>
-        <ul class="pkg-list">
-          <li><i class="ti ti-check"></i>Everything in Clarity</li>
-          <li><i class="ti ti-check"></i>Full Odoo ERP implementation</li>
-          <li><i class="ti ti-check"></i>Multi-entity consolidation</li>
-          <li><i class="ti ti-check"></i>Cash flow forecasting</li>
-          <li><i class="ti ti-check"></i>Inventory &amp; supply chain setup</li>
-          <li><i class="ti ti-check"></i>CRM &amp; sales pipeline</li>
-          <li><i class="ti ti-check"></i>Executive management reporting</li>
-          <li><i class="ti ti-check"></i>Strategic finance advisory</li>
-        </ul>
-        <button class="pkg-cta" onclick="document.getElementById('sec-cta').scrollIntoView({behavior:'smooth'})">Enquire now</button>
+      <!-- Visual stage (full-bleed canvas) -->
+      <div class="scene-stage">
+        <canvas id="stage" role="img" aria-label="Animated visualisation: scattered business data is sorted into domains, turned into a variety of charts and gauges, and finally into colour-coded recommended actions."></canvas>
+        <div class="scroll-hint" id="scrollHint"><i class="ti ti-chevron-down"></i><span>Scroll the story</span></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ════════════ VIEW: OUR PROCESS ════════════ -->
+<section class="view view-process" data-view="process" role="region" aria-label="Our Process">
+  <div class="view-head">
+    <div class="sec-eyebrow">Our process</div>
+    <h2 class="sec-title">How we work with you.</h2>
+    <p class="sec-sub">A structured engagement built around your business — from the first conversation to ongoing advisory. No guesswork, no surprises.</p>
+  </div>
+  <div class="timeline">
+
+    <!-- Phase 1: Understanding -->
+    <div class="tl-row rev">
+      <div class="tl-node">1</div>
+      <div class="tl-card">
+        <div class="tl-label">Phase 1</div>
+        <h3>Understanding</h3>
+        <p>We deep-dive into your operations, financials, pain points and goals. No assumptions — we listen first.</p>
+      </div>
+      <div class="tl-art" aria-hidden="true">
+        <svg viewBox="0 0 200 150">
+          <rect x="38" y="20" width="92" height="112" rx="9" fill="#fff" stroke="#C5DCE6" stroke-width="2"/>
+          <rect x="52" y="38" width="54" height="7" rx="3.5" fill="#8BBFCC"/>
+          <rect x="52" y="55" width="64" height="5" rx="2.5" fill="#C5DCE6"/>
+          <rect x="52" y="69" width="46" height="5" rx="2.5" fill="#C5DCE6"/>
+          <rect x="52" y="88" width="60" height="5" rx="2.5" fill="#C5DCE6"/>
+          <rect x="52" y="102" width="40" height="5" rx="2.5" fill="#C5DCE6"/>
+          <circle cx="124" cy="92" r="29" fill="rgba(91,158,201,0.12)" stroke="#2B5F8E" stroke-width="4"/>
+          <path d="M112 92 l8 9 l16 -20" fill="none" stroke="#4A8A9C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="ig-line"/>
+          <line x1="145" y1="113" x2="166" y2="134" stroke="#2B5F8E" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Phase 2: Mapping -->
+    <div class="tl-row rev">
+      <div class="tl-node">2</div>
+      <div class="tl-card">
+        <div class="tl-label">Phase 2</div>
+        <h3>Mapping</h3>
+        <p>We map your data flows, identify gaps and design the structure — accounts, workflows and reporting hierarchy.</p>
+      </div>
+      <div class="tl-art" aria-hidden="true">
+        <svg viewBox="0 0 200 150">
+          <g stroke="#8BBFCC" stroke-width="2.5" fill="none" class="ig-line">
+            <line x1="42" y1="42" x2="100" y2="75"/>
+            <line x1="42" y1="110" x2="100" y2="75"/>
+            <line x1="100" y1="75" x2="160" y2="40"/>
+            <line x1="100" y1="75" x2="160" y2="112"/>
+          </g>
+          <circle cx="42" cy="42" r="11" fill="#C5DCE6"/>
+          <circle cx="42" cy="110" r="11" fill="#8BBFCC"/>
+          <circle cx="100" cy="75" r="16" fill="#2B5F8E"/>
+          <circle cx="160" cy="40" r="11" fill="#5B9EC9"/>
+          <circle cx="160" cy="112" r="11" fill="#4A8A9C"/>
+          <rect x="96" y="71" width="8" height="8" rx="1.5" fill="#fff"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Phase 3: Build & Implement -->
+    <div class="tl-row rev">
+      <div class="tl-node">3</div>
+      <div class="tl-card">
+        <div class="tl-label">Phase 3</div>
+        <h3>Build &amp; Implement</h3>
+        <p>We configure the system, migrate data, set up approval workflows and go live with full training.</p>
+      </div>
+      <div class="tl-art" aria-hidden="true">
+        <svg viewBox="0 0 200 150">
+          <rect class="ig-bar" x="36" y="98" width="118" height="22" rx="5" fill="#C5DCE6"/>
+          <rect class="ig-bar" x="50" y="70" width="90" height="22" rx="5" fill="#5B9EC9"/>
+          <rect class="ig-bar" x="64" y="42" width="62" height="22" rx="5" fill="#2B5F8E"/>
+          <g transform="translate(162,116)">
+            <g class="ig-spin">
+              <circle r="15" fill="none" stroke="#4A8A9C" stroke-width="6"/>
+              <g fill="#4A8A9C">
+                <rect x="-3" y="-25" width="6" height="9" rx="2"/>
+                <rect x="-3" y="16" width="6" height="9" rx="2"/>
+                <rect x="-25" y="-3" width="9" height="6" rx="2"/>
+                <rect x="16" y="-3" width="9" height="6" rx="2"/>
+              </g>
+              <circle r="5" fill="#fff"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Phase 4: Visualise -->
+    <div class="tl-row rev">
+      <div class="tl-node">4</div>
+      <div class="tl-card">
+        <div class="tl-label">Phase 4</div>
+        <h3>Visualise</h3>
+        <p>Dashboards go live. KPIs are tracked. Management gains real-time visibility into every corner of the business.</p>
+      </div>
+      <div class="tl-art" aria-hidden="true">
+        <svg viewBox="0 0 200 150">
+          <rect x="20" y="18" width="160" height="114" rx="11" fill="#fff" stroke="#C5DCE6" stroke-width="2"/>
+          <rect class="ig-bar" x="36" y="78" width="15" height="36" rx="3" fill="#5B9EC9"/>
+          <rect class="ig-bar" x="58" y="58" width="15" height="56" rx="3" fill="#2B5F8E"/>
+          <rect class="ig-bar" x="80" y="90" width="15" height="24" rx="3" fill="#8BBFCC"/>
+          <polyline class="ig-line" points="108,98 126,78 144,86 166,56" fill="none" stroke="#4A8A9C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="166" cy="56" r="3.5" fill="#4A8A9C"/>
+          <rect x="108" y="32" width="58" height="16" rx="8" fill="rgba(46,125,94,0.16)"/>
+          <circle cx="118" cy="40" r="3.2" fill="#2E7D5E"/>
+          <rect x="126" y="37" width="32" height="6" rx="3" fill="#2E7D5E" opacity="0.55"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Phase 5: Optimise & Advise -->
+    <div class="tl-row rev">
+      <div class="tl-node">5</div>
+      <div class="tl-card">
+        <div class="tl-label">Phase 5</div>
+        <h3>Optimise &amp; Advise</h3>
+        <p>We stay. Monthly reviews, compliance monitoring, advisory and continuous improvement as you grow.</p>
+      </div>
+      <div class="tl-art" aria-hidden="true">
+        <svg viewBox="0 0 200 150">
+          <g class="ig-spin">
+            <circle cx="100" cy="75" r="46" fill="none" stroke="#C5DCE6" stroke-width="7" stroke-dasharray="205 85" stroke-linecap="round"/>
+            <polygon points="148,75 134,66 134,84" fill="#5B9EC9"/>
+          </g>
+          <polyline class="ig-line" points="74,94 90,80 102,87 124,56" fill="none" stroke="#2B5F8E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="124,56 112,58 121,67" fill="#2B5F8E"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════ VIEW: SERVICE & PACKAGES ════════════ -->
+<section class="view view-services" data-view="services" role="region" aria-label="Service and Packages">
+  <div class="view-head">
+    <div class="sec-eyebrow">What we do</div>
+    <h2 class="sec-title">Six lenses to see your business clearly.</h2>
+    <p class="sec-sub">An integrated suite — not just an accountant, but your full finance and operations partner.</p>
+  </div>
+
+  <div class="sp-wrap">
+
+    <!-- Services -->
+    <div class="sp-block">
+      <div class="svc-grid">
+        <div class="svc rev">
+          <div class="svc-head"><i class="ti ti-report-money svc-icon"></i><span class="svc-num">01</span></div>
+          <h3>Accounting &amp; Finance</h3>
+          <p>Full-set accounting, bank reconciliation, monthly closing, cash flow monitoring and management accounts.</p>
+        </div>
+        <div class="svc rev d1">
+          <div class="svc-head"><i class="ti ti-certificate svc-icon"></i><span class="svc-num">02</span></div>
+          <h3>Tax &amp; Compliance</h3>
+          <p>Tax computation, SST, e-Invoice, MBRS submission, and coordination with auditors and tax agents.</p>
+        </div>
+        <div class="svc rev d2">
+          <div class="svc-head"><i class="ti ti-users svc-icon"></i><span class="svc-num">03</span></div>
+          <h3>Payroll &amp; HR Admin</h3>
+          <p>Automated payroll, EPF/SOCSO/PCB/EIS submissions, leave management and employee records.</p>
+        </div>
+        <div class="svc rev">
+          <div class="svc-head"><i class="ti ti-sitemap svc-icon"></i><span class="svc-num">04</span></div>
+          <h3>Workflow Advisory</h3>
+          <p>SOP structuring, delegation of authority, approval workflows and process improvement to remove bottlenecks.</p>
+        </div>
+        <div class="svc rev d1">
+          <div class="svc-head"><i class="ti ti-chart-line svc-icon"></i><span class="svc-num">05</span></div>
+          <h3>Business Reporting &amp; KPI</h3>
+          <p>Real-time dashboards, profitability analysis, cash flow forecasting and management reports that drive action.</p>
+        </div>
+        <div class="svc rev d2">
+          <div class="svc-head"><i class="ti ti-device-desktop svc-icon"></i><span class="svc-num">06</span></div>
+          <h3>ERP Implementation</h3>
+          <p>End-to-end ERP setup — module configuration, data migration, user training and ongoing system support.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Packages -->
+    <div class="sp-block">
+      <div class="sp-sub-head">
+        <div class="sec-eyebrow">Packages</div>
+        <h3>Built for where you are and where you're going.</h3>
+        <p>Each package maps to a stage of business maturity — choose your starting point, and grow into the next as you scale.</p>
+      </div>
+      <div class="pkg-grid">
+
+        <div class="pkg p1 rev">
+          <div class="pkg-tier">Entry Level</div>
+          <div class="pkg-name">Essentials</div>
+          <div class="pkg-desc">For new or small businesses that need a proper financial foundation and statutory compliance from day one.</div>
+          <ul class="pkg-list">
+            <li><i class="ti ti-check"></i>Full-set bookkeeping</li>
+            <li><i class="ti ti-check"></i>Bank reconciliation</li>
+            <li><i class="ti ti-check"></i>Monthly management accounts</li>
+            <li><i class="ti ti-check"></i>Payroll processing</li>
+            <li><i class="ti ti-check"></i>EPF / SOCSO / PCB / EIS</li>
+            <li><i class="ti ti-check"></i>Annual tax computation</li>
+            <li><i class="ti ti-check"></i>MBRS &amp; draft financials</li>
+            <li><i class="ti ti-check"></i>Auditor coordination</li>
+          </ul>
+          <button class="pkg-cta" data-route="contact">Enquire now</button>
+        </div>
+
+        <div class="pkg p2 rev d1">
+          <div class="pkg-tier">Fundamental</div>
+          <div class="pkg-name">Foundation</div>
+          <div class="pkg-desc">For growing businesses ready to build structure into their operations and gain real financial visibility.</div>
+          <ul class="pkg-list">
+            <li><i class="ti ti-check"></i>Everything in Essentials</li>
+            <li><i class="ti ti-check"></i>Cash flow monitoring</li>
+            <li><i class="ti ti-check"></i>SST &amp; e-Invoice support</li>
+            <li><i class="ti ti-check"></i>SOP &amp; workflow design</li>
+            <li><i class="ti ti-check"></i>Approval workflow setup</li>
+            <li><i class="ti ti-check"></i>Basic KPI dashboard</li>
+            <li><i class="ti ti-check"></i>AR / AP monitoring</li>
+            <li><i class="ti ti-check"></i>Claims management</li>
+          </ul>
+          <button class="pkg-cta" data-route="contact">Enquire now</button>
+        </div>
+
+        <div class="pkg p3 rev d2">
+          <div class="pkg-flag">Most popular</div>
+          <div class="pkg-tier">Comprehensive</div>
+          <div class="pkg-name">Clarity</div>
+          <div class="pkg-desc">For businesses that want full operational visibility, structured reporting and management-ready dashboards.</div>
+          <ul class="pkg-list">
+            <li><i class="ti ti-check"></i>Everything in Foundation</li>
+            <li><i class="ti ti-check"></i>Full KPI dashboard suite</li>
+            <li><i class="ti ti-check"></i>Profitability &amp; margin analysis</li>
+            <li><i class="ti ti-check"></i>Budget vs actual reporting</li>
+            <li><i class="ti ti-check"></i>Department performance tracking</li>
+            <li><i class="ti ti-check"></i>Working capital analysis</li>
+            <li><i class="ti ti-check"></i>Tax planning &amp; advisory</li>
+            <li><i class="ti ti-check"></i>ERP core modules</li>
+          </ul>
+          <button class="pkg-cta" data-route="contact">Enquire now</button>
+        </div>
+
+        <div class="pkg p4 rev d3">
+          <div class="pkg-tier">Full Package</div>
+          <div class="pkg-name">Enterprise</div>
+          <div class="pkg-desc">For scaling or multi-entity businesses needing a fully integrated operating system and strategic advisory.</div>
+          <ul class="pkg-list">
+            <li><i class="ti ti-check"></i>Everything in Clarity</li>
+            <li><i class="ti ti-check"></i>Full ERP implementation</li>
+            <li><i class="ti ti-check"></i>Multi-entity consolidation</li>
+            <li><i class="ti ti-check"></i>Cash flow forecasting</li>
+            <li><i class="ti ti-check"></i>Inventory &amp; supply chain setup</li>
+            <li><i class="ti ti-check"></i>CRM &amp; sales pipeline</li>
+            <li><i class="ti ti-check"></i>Executive management reporting</li>
+            <li><i class="ti ti-check"></i>Strategic finance advisory</li>
+          </ul>
+          <button class="pkg-cta" data-route="contact">Enquire now</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ════════════ CTA (global) ════════════ -->
 <section class="cta" id="sec-cta">
   <canvas id="ctac" aria-hidden="true"></canvas>
-  <h2 class="rev">Ready to see clearly?</h2>
-  <p class="rev">Tell us where your business is today. We'll show you what it could look like tomorrow.</p>
-  <div class="cta-actions rev">
+  <h2>Ready to see clearly?</h2>
+  <p>Tell us where your business is today. We'll show you what it could look like tomorrow.</p>
+  <div class="cta-actions">
     <a class="cta-btn" href="mailto:hello@figurelise.com"><i class="ti ti-mail" aria-hidden="true"></i>Email us</a>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ════════════ FOOTER (global) ════════════ -->
 <footer class="footer">
-  <div><div class="f-logo-text">Figure<span>lise</span> Sdn Bhd</div><div class="f-tagline">Visualise Your Business</div></div>
-  <div>
-    <div class="f-right">&copy; 2026 &middot; <a href="mailto:hello@figurelise.com">hello@figurelise.com</a></div>
-    <!-- TODO: replace with your real WhatsApp number -->
-
+  <div class="f-brand">
+    <div class="f-logo-row">
+      <svg width="28" height="22" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="0"  y="20" width="7" height="10" rx="1.5" fill="#C5DCE6"/>
+        <rect x="9"  y="13" width="7" height="17" rx="1.5" fill="#8BBFCC"/>
+        <rect x="18" y="7"  width="7" height="23" rx="1.5" fill="#5B9EC9"/>
+        <rect x="27" y="0"  width="7" height="30" rx="1.5" fill="#5B9EC9"/>
+      </svg>
+      <div class="f-logo-text">Figure<span>lise</span> Sdn Bhd</div>
+    </div>
+    <div class="f-tagline">Visualise Your Business</div>
+  </div>
+  <nav class="f-nav" aria-label="Footer">
+    <a data-route="home" href="#/home">Home</a>
+    <a data-route="approach" href="#/approach">Our Approach</a>
+    <a data-route="process" href="#/process">Our Process</a>
+    <a data-route="services" href="#/services">Service &amp; Packages</a>
+  </nav>
+  <div class="f-right">
+    &copy; 2026 Figurelise Sdn Bhd<br>
+    <a href="mailto:hello@figurelise.com">hello@figurelise.com</a>
   </div>
 </footer>
 </div>
 
 <script>
-// ── BG squares ───────────────────────────────────────────────
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ══════════ ROUTER ══════════ */
+const ROUTES=['home','approach','process','services'];
+const views=document.querySelectorAll('.view');
+const navLinks=document.querySelectorAll('[data-route]');
+let currentRoute='home';
+
+function setActiveNav(route){
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.route===route);
+  });
+}
+function showView(route, push){
+  if(route==='contact'){ // not a page — scroll to global CTA on current view
+    document.getElementById('sec-cta').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});
+    closeMobile();
+    return;
+  }
+  if(!ROUTES.includes(route)) route='home';
+  currentRoute=route;
+  views.forEach(v=>{
+    const on=v.dataset.view===route;
+    v.classList.toggle('active',on);
+  });
+  setActiveNav(route);
+  window.scrollTo({top:0,behavior:'auto'});
+  if(push) history.replaceState(null,'', '#/'+route);
+  // (re)init scrollytelling stage when entering approach
+  stageActive=(route==='approach');
+  if(stageActive){ sR(); startStage(); } else { stopStage(); }
+  // re-trigger reveal animations for the new view
+  revObserveWithin(route);
+  closeMobile();
+}
+navLinks.forEach(el=>{
+  el.addEventListener('click',e=>{
+    if(el.dataset.route!=='contact') e.preventDefault();
+    showView(el.dataset.route, true);
+  });
+});
+window.addEventListener('hashchange',()=>{
+  const r=(location.hash.replace('#/','')||'home');
+  if(r!==currentRoute) showView(r,false);
+});
+
+/* mobile menu */
+const burger=document.getElementById('burger'), mobileMenu=document.getElementById('mobileMenu');
+function closeMobile(){mobileMenu.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.innerHTML='<i class="ti ti-menu-2"></i>';}
+burger.addEventListener('click',()=>{
+  const open=mobileMenu.classList.toggle('open');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+  burger.innerHTML=open?'<i class="ti ti-x"></i>':'<i class="ti ti-menu-2"></i>';
+});
+
+/* ══════════ BACKGROUND SQUARES ══════════ */
 const bgc=document.getElementById('bgc'),bgx=bgc.getContext('2d');
 let BW,BH;
 function bR(){BW=bgc.width=window.innerWidth;BH=bgc.height=window.innerHeight}
@@ -553,8 +834,7 @@ class FS{
   update(){this.x+=this.vx;this.y+=this.vy;this.rot+=this.vr;if(this.y<-30)this.init(false)}
   draw(c){c.save();c.translate(this.x,this.y);c.rotate(this.rot);c.globalAlpha=this.a;c.fillStyle=this.c;const h=this.s/2,r=2;c.beginPath();c.moveTo(-h+r,-h);c.lineTo(h-r,-h);c.arcTo(h,-h,h,-h+r,r);c.lineTo(h,h-r);c.arcTo(h,h,h-r,h,r);c.lineTo(-h+r,h);c.arcTo(-h,h,-h,h-r,r);c.lineTo(-h,-h+r);c.arcTo(-h,-h,-h+r,-h,r);c.closePath();c.fill();c.restore()}
 }
-const fsqs=[];for(let i=0;i<60;i++)fsqs.push(new FS());
-const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fsqs=[];const _fsN=window.innerWidth<640?26:(window.innerWidth<1000?42:60);for(let i=0;i<_fsN;i++)fsqs.push(new FS());
 let bgRAF=null;
 function bgFrame(){bgx.clearRect(0,0,BW,BH);fsqs.forEach(f=>{f.update();f.draw(bgx)})}
 function bgLoop(){bgFrame();bgRAF=requestAnimationFrame(bgLoop)}
@@ -563,16 +843,19 @@ function stopBg(){if(bgRAF){cancelAnimationFrame(bgRAF);bgRAF=null}}
 startBg();
 document.addEventListener('visibilitychange',()=>{document.hidden?stopBg():startBg()});
 
-// ── STAGE ────────────────────────────────────────────────────
+/* ══════════ STAGE (scroll-driven) ══════════ */
 const sc=document.getElementById('stage'),sx=sc.getContext('2d');
 let sW,sH;
 function sR(){
   const rect=sc.getBoundingClientRect();
   sW=rect.width;sH=sc.offsetHeight;
-  sc.width=sW*devicePixelRatio;sc.height=sH*devicePixelRatio;
-  sx.scale(devicePixelRatio,devicePixelRatio);
+  if(!sW||!sH)return;
+  const dpr=Math.min(devicePixelRatio||1,2);
+  sc.width=sW*dpr;sc.height=sH*dpr;
+  sx.setTransform(1,0,0,1,0,0);
+  sx.scale(dpr,dpr);
 }
-sR();window.addEventListener('resize',()=>{sR();initNodes();if(typeof startStage==='function')startStage()});
+window.addEventListener('resize',()=>{if(stageActive){sR();initNodes();}});
 
 const DOMAINS=['finance','ops','ccc','compliance','sales','tech'];
 const DOMAIN_COLORS={finance:'#1E2D40',ops:'#2B5F8E',ccc:'#4A8A9C',compliance:'#5B9EC9',sales:'#8BBFCC',tech:'#6B8FAB'};
@@ -583,9 +866,9 @@ const TERMS={
   ccc:['AR','AP','DSO','DPO','Inventory','CCC','Working Capital','Debtors','Creditors','Liquidity'],
   compliance:['Audit','LHDN','SSM','MBRS','E-Invoice','Tax Filing','Governance','Risk Mgmt','Annual Return','XBRL'],
   sales:['CRM','Pipeline','Quotation','Lead','CAC','CLV','NPS','Conversion','Sales Order','Retention'],
-  tech:['ERP','Dashboard','BI','API','Automation','Integration','Data Security','Backup','Access Control','Odoo']
+  tech:['ERP','Dashboard','BI','API','Automation','Integration','Data Security','Backup','Access Control','Cloud']
 };
-const IMPORTANT={finance:['Revenue','Gross Profit','Cash Flow'],ops:['KPI','Payroll','SOP'],ccc:['AR','AP','DSO'],compliance:['Audit','MBRS','Tax Filing'],sales:['CRM','Pipeline','Lead'],tech:['ERP','Dashboard','Odoo']};
+const IMPORTANT={finance:['Revenue','Gross Profit','Cash Flow'],ops:['KPI','Payroll','SOP'],ccc:['AR','AP','DSO'],compliance:['Audit','MBRS','Tax Filing'],sales:['CRM','Pipeline','Lead'],tech:['ERP','Dashboard','Cloud']};
 
 let nodes=[];
 function initNodes(){
@@ -595,21 +878,26 @@ function initNodes(){
       const imp=IMPORTANT[dom].includes(term);
       const colX=(di+0.5)/6;
       const sy2=0.1+ti*(0.82/TERMS[dom].length);
-      // clarity: 2 rows of 3 domain boxes
       const bRow=Math.floor(di/3),bCol=di%3;
       const bx=0.04+bCol*0.325,by=0.06+bRow*0.47;
       const inX=bx+0.04+(ti%4)*0.06;
       const inY=by+0.12+Math.floor(ti/4)*0.1;
+      // action: gather each domain's dots toward its indicator panel (3-col grid)
+      const aCol=di%3, aRow=Math.floor(di/3);
+      const ax=0.03+aCol*0.314+0.145+(Math.random()-0.5)*0.10;
+      const ay=0.03+aRow*0.44+0.12+(Math.random()-0.5)*0.10;
       nodes.push({
         term,dom,di,imp,
         cx:0.03+Math.random()*0.94,cy:0.04+Math.random()*0.92,
         vx:(Math.random()-0.5)*1.1,vy:(Math.random()-0.5)*1.1,
         lx:0,ly:0,_x:0,_y:0,
-        sz:imp?5:3,
+        sz:imp?7:4,
         sx2:colX+(Math.random()-0.5)*0.03,
         sy2:Math.min(Math.max(sy2,0.06),0.93),
         qx:Math.min(Math.max(inX,0.05),0.92),
-        qy:Math.min(Math.max(inY,0.07),0.91)
+        qy:Math.min(Math.max(inY,0.07),0.91),
+        ax:Math.min(Math.max(ax,0.05),0.94),
+        ay:Math.min(Math.max(ay,0.06),0.92)
       });
     });
   });
@@ -617,11 +905,11 @@ function initNodes(){
 initNodes();
 
 let curState='chaos',fromState='chaos',animP=1;
-const descData={
-  chaos:{icon:'ti-alert-circle',text:'Every business drowns in data — revenue, costs, compliance, payroll, AR, AP — all scattered with no clear picture.'},
-  structure:{icon:'ti-layout-columns',text:'Data is sorted by domain: Finance, Operations, Cash Cycle, Compliance, Sales, Technology. The landscape becomes visible.'},
-  clarity:{icon:'ti-chart-bar',text:'Six dashboards. Each domain shows only what matters — trend lines, gauges, and key metrics at a glance.'},
-  action:{icon:'ti-bolt',text:'Every metric triggers a response. Green means on track. Amber means watch. Red means act now.'}
+const SCENES={
+  chaos:{n:'01 — Chaos',t:'It starts as chaos.',d:"Revenue, costs, compliance, payroll, receivables, payables — every business runs on data that's scattered, disconnected, and impossible to read at a glance."},
+  structure:{n:'02 — Structure',t:'We give it structure.',d:'Everything is sorted into the domains that actually run your business: finance, operations, cash cycle, compliance, sales and technology.'},
+  clarity:{n:'03 — Visualise',t:'We make it visual.',d:'Each domain becomes a live dashboard — the right chart for the right number. Bars, lines, gauges and rings replace endless spreadsheets.'},
+  action:{n:'04 — Action',t:'Then you take action.',d:'Every indicator points to a decision. Green is on track, amber means watch, red means act now — so you always know the next move.'}
 };
 
 function lerp(a,b,t){return a+(b-a)*t}
@@ -629,25 +917,22 @@ function ease(t){return t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
 function getPos(n,state){
   if(state==='chaos') return {x:n.lx||n.cx,y:n.ly||n.cy};
   if(state==='structure') return {x:n.sx2,y:n.sy2};
-  if(state==='clarity'||state==='action') return {x:n.qx,y:n.qy};
+  if(state==='clarity') return {x:n.qx,y:n.qy};
+  if(state==='action') return {x:n.ax,y:n.ay};
   return {x:n.qx,y:n.qy};
 }
 function rr(ctx,x,y,w,h,r){
   ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.arcTo(x+w,y,x+w,y+r,r);ctx.lineTo(x+w,y+h-r);ctx.arcTo(x+w,y+h,x+w-r,y+h,r);ctx.lineTo(x+r,y+h);ctx.arcTo(x,y+h,x,y+h-r,r);ctx.lineTo(x,y+r);ctx.arcTo(x,y,x+r,y,r);ctx.closePath();
 }
 
-// ── CLARITY data per domain ───────────────────────────────────
-// Each domain shows a mini chart + 2 KPIs
 const CLARITY_DATA={
-  finance:{kpis:[{l:'Revenue',v:'RM 320k',t:'+8%',s:'up'},{l:'Net Margin',v:'13.2%',t:'-1.1%',s:'down'}],bars:[0.82,0.65,0.78,0.91,0.70,0.88]},
-  ops:    {kpis:[{l:'Payroll',v:'RM 48k',t:'on time',s:'ok'},{l:'KPI Score',v:'78%',t:'+3%',s:'up'}],bars:[0.70,0.78,0.72,0.80,0.75,0.82]},
-  ccc:    {kpis:[{l:'DSO',v:'34 days',t:'+6d',s:'down'},{l:'AR Outstanding',v:'RM 91k',t:'',s:'warn'}],bars:[0.55,0.60,0.70,0.65,0.72,0.68]},
-  compliance:{kpis:[{l:'Tax Status',v:'Filed',t:'on time',s:'ok'},{l:'Audit Ready',v:'92%',t:'',s:'ok'}],bars:[1,1,0.9,1,0.95,1]},
-  sales:  {kpis:[{l:'Pipeline',v:'RM 210k',t:'+15%',s:'up'},{l:'Conversion',v:'28%',t:'-2%',s:'down'}],bars:[0.45,0.55,0.60,0.72,0.65,0.80]},
-  tech:   {kpis:[{l:'ERP Adoption',v:'85%',t:'+5%',s:'up'},{l:'System Uptime',v:'99.9%',t:'',s:'ok'}],bars:[0.80,0.82,0.85,0.88,0.85,0.90]}
+  finance:{title:'Finance',type:'bars',v:'RM 320k',t:'+8%',s:'up',series:[0.50,0.62,0.55,0.72,0.83,0.92]},
+  ops:    {title:'Operations',type:'gauge',v:'78%',t:'+3%',s:'up',pct:0.78},
+  ccc:    {title:'Cash Cycle',type:'line',v:'34 days',t:'+6d',s:'down',series:[0.35,0.50,0.42,0.60,0.70,0.78]},
+  compliance:{title:'Compliance',type:'ring',v:'92%',t:'ready',s:'ok',pct:0.92},
+  sales:  {title:'Sales & CRM',type:'area',v:'RM 210k',t:'+15%',s:'up',series:[0.25,0.38,0.50,0.52,0.68,0.85]},
+  tech:   {title:'Technology',type:'donut',v:'85%',t:'+5%',s:'up',pct:0.85}
 };
-
-// ── ACTION indicators ─────────────────────────────────────────
 const ACTION_DATA=[
   {dom:'finance',metric:'Gross Margin',value:'31.4%',status:'warn',trend:-1.8,action:'Review OPEX and pricing structure',icon:'💰'},
   {dom:'ccc',metric:'DSO',value:'34 days',status:'red',trend:+6,action:'Chase outstanding AR, tighten credit terms',icon:'⏱'},
@@ -657,27 +942,153 @@ const ACTION_DATA=[
   {dom:'sales',metric:'Pipeline',value:'RM 210k',status:'ok',trend:+15,action:'3 deals closing this month — follow up',icon:'📈'},
 ];
 
-let stageRAF=null,stageVisible=false;
-function startStage(){if(!stageRAF)stageRAF=requestAnimationFrame(drawStage)}
-function stopStage(){if(stageRAF){cancelAnimationFrame(stageRAF);stageRAF=null}}
-function drawStage(){
-  stageRAF=null;
-  if(!sW||!sH){startStage();return}
-  sx.clearRect(0,0,sW,sH);
-  const ep=ease(Math.min(animP,1));
+/* ── scroll progress → state mapping ── */
+const SEGS=[
+  {to:'structure',start:0.18,end:0.34},
+  {to:'clarity',  start:0.46,end:0.60},
+  {to:'action',   start:0.72,end:0.86},
+];
+function statesFromP(p){
+  if(p<SEGS[0].start)      return {from:'chaos',cur:'chaos',t:1};
+  if(p<SEGS[0].end)        return {from:'chaos',cur:'structure',t:(p-SEGS[0].start)/(SEGS[0].end-SEGS[0].start)};
+  if(p<SEGS[1].start)      return {from:'structure',cur:'structure',t:1};
+  if(p<SEGS[1].end)        return {from:'structure',cur:'clarity',t:(p-SEGS[1].start)/(SEGS[1].end-SEGS[1].start)};
+  if(p<SEGS[2].start)      return {from:'clarity',cur:'clarity',t:1};
+  if(p<SEGS[2].end)        return {from:'clarity',cur:'action',t:(p-SEGS[2].start)/(SEGS[2].end-SEGS[2].start)};
+  return {from:'action',cur:'action',t:1};
+}
+function scrollProgress(){
+  const wrap=document.getElementById('scrollyWrap');
+  const rect=wrap.getBoundingClientRect();
+  const navh=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navh'))||64;
+  const total=rect.height-(window.innerHeight-navh);
+  if(total<=0)return 0;
+  return Math.max(0,Math.min(1,(-rect.top+navh)/total));
+}
 
+/* update narrative panel + step progress ── */
+const REG=[[0,0.30],[0.30,0.55],[0.55,0.80],[0.80,1.0]];
+const SCENE_ORDER=['chaos','structure','clarity','action'];
+let lastScene=null;
+function updateScene(p){
+  const steps=document.querySelectorAll('.scene-step');
+  let active=0;
+  REG.forEach((r,i)=>{
+    if(p>=r[0]) active=i;
+    const f=Math.max(0,Math.min(1,(p-r[0])/(r[1]-r[0])));
+    const bar=steps[i]&&steps[i].querySelector('.bar i');
+    if(bar) bar.style.width=(f*100)+'%';
+  });
+  steps.forEach((s,i)=>s.classList.toggle('on',i<=active));
+  // narrative text tied to the visual we're moving toward
+  if(curState!==lastScene){
+    lastScene=curState;
+    const sc2=SCENES[curState];
+    const c=document.getElementById('sceneCounter'),t=document.getElementById('sceneTitle'),d=document.getElementById('sceneDesc');
+    if(reduceMotion){c.textContent=sc2.n;t.textContent=sc2.t;d.textContent=sc2.d;}
+    else{
+      [c,t,d].forEach(e=>e.classList.add('scene-fade'));
+      setTimeout(()=>{c.textContent=sc2.n;t.textContent=sc2.t;d.textContent=sc2.d;[c,t,d].forEach(e=>e.classList.remove('scene-fade'));},180);
+    }
+  }
+  document.getElementById('scrollHint').style.opacity=p>0.05?'0':'0.7';
+}
+
+/* mini chart renderer for the Visualise scene */
+function drawChart(type,x,y,w,h,col,d,prog){
+  const p=Math.max(0,Math.min(1,prog));
+  sx.save();
+  if(type==='bars'){
+    const s=d.series,n=s.length,gap=w*0.12,bw=(w-gap*(n-1))/n;
+    s.forEach((v,i)=>{const bh=h*v*p;sx.globalAlpha=0.4+i*0.1;sx.fillStyle=col;rr(sx,x+i*(bw+gap),y+h-bh,bw,bh,2);sx.fill();});
+  } else if(type==='line'||type==='area'){
+    const s=d.series,n=s.length;
+    const px=i=>x+(w/(n-1))*i, py=i=>y+h-(h*s[i]*0.9*p)-h*0.05;
+    if(type==='area'){
+      sx.globalAlpha=0.13;sx.fillStyle=col;sx.beginPath();sx.moveTo(px(0),y+h);
+      for(let i=0;i<n;i++)sx.lineTo(px(i),py(i));
+      sx.lineTo(px(n-1),y+h);sx.closePath();sx.fill();
+    }
+    sx.globalAlpha=0.85;sx.strokeStyle=col;sx.lineWidth=2;sx.lineJoin='round';sx.beginPath();
+    for(let i=0;i<n;i++){i?sx.lineTo(px(i),py(i)):sx.moveTo(px(i),py(i));}sx.stroke();
+    for(let i=0;i<n;i++){sx.globalAlpha=0.9;sx.fillStyle=col;sx.beginPath();sx.arc(px(i),py(i),2.2,0,7);sx.fill();}
+  } else if(type==='gauge'){
+    const cx2=x+w/2, cy2=y+h*0.94, r=Math.min(w*0.42,h*0.82);
+    sx.lineWidth=Math.max(7,r*0.16);sx.lineCap='round';
+    sx.globalAlpha=0.15;sx.strokeStyle=col;sx.beginPath();sx.arc(cx2,cy2,r,Math.PI,2*Math.PI);sx.stroke();
+    sx.globalAlpha=0.92;sx.strokeStyle=col;sx.beginPath();sx.arc(cx2,cy2,r,Math.PI,Math.PI+Math.PI*d.pct*p);sx.stroke();
+    sx.globalAlpha=1;sx.fillStyle=col;sx.font='bold 16px Inter,sans-serif';sx.textAlign='center';
+    sx.fillText(Math.round(d.pct*100*p)+'%',cx2,cy2-3);sx.textAlign='left';
+  } else if(type==='ring'||type==='donut'){
+    const cx2=x+w/2, cy2=y+h/2, r=Math.min(w,h)*0.40;
+    sx.lineWidth=Math.max(7,r*(type==='donut'?0.34:0.26));sx.lineCap=type==='donut'?'butt':'round';
+    sx.globalAlpha=0.15;sx.strokeStyle=col;sx.beginPath();sx.arc(cx2,cy2,r,0,7);sx.stroke();
+    sx.globalAlpha=0.92;sx.strokeStyle=col;sx.beginPath();sx.arc(cx2,cy2,r,-Math.PI/2,-Math.PI/2+2*Math.PI*d.pct*p);sx.stroke();
+    sx.globalAlpha=1;sx.fillStyle=col;sx.font='bold 15px Inter,sans-serif';sx.textAlign='center';
+    sx.fillText(Math.round(d.pct*100*p)+'%',cx2,cy2+5);sx.textAlign='left';
+  }
+  sx.restore();
+}
+
+let stageRAF=null,stageActive=false;
+function startStage(){if(!stageRAF)stageRAF=requestAnimationFrame(stageLoop)}
+function stopStage(){if(stageRAF){cancelAnimationFrame(stageRAF);stageRAF=null}}
+function stageLoop(){
+  stageRAF=null;
+  if(!stageActive)return;
+  if(!sW||!sH){sR();}
+  const p=scrollProgress();
+  const st=statesFromP(p);
+  fromState=st.from;curState=st.cur;animP=st.t;
+  // chaos brownian drift
   if(curState==='chaos'&&!reduceMotion){
     nodes.forEach(n=>{
       n.lx=(n.lx||n.cx)+(n.vx*0.006);n.ly=(n.ly||n.cy)+(n.vy*0.006);
       if(n.lx<0.01||n.lx>0.99)n.vx*=-1;if(n.ly<0.01||n.ly>0.97)n.vy*=-1;
     });
   }
+  updateScene(p);
+  renderStage();
+  stageRAF=requestAnimationFrame(stageLoop);
+}
+
+function renderStage(){
+  if(!sW||!sH)return;
+  sx.clearRect(0,0,sW,sH);
+  const ep=ease(Math.min(animP,1));
+
+  // ── crossfade factors: keep adjacent scenes overlapping so transitions connect ──
+  const kStruct = curState==='structure' ? Math.min(Math.max((ep-0.15)/0.55,0),1)
+                : (fromState==='structure'&&curState==='clarity') ? (1-ep) : 0;
+  const kClar   = curState==='clarity' ? ep
+                : (fromState==='clarity'&&curState==='action') ? (1-ep) : 0;
+  const kAct    = curState==='action' ? ep : 0;
+  // entrance/exit vertical drift (px) — gives a sense of pieces moving between scenes
+  const clarOY  = curState==='clarity' ? (1-ep)*22 : (fromState==='clarity'? -ep*22 : 0);
+  const actOY   = curState==='action' ? (1-ep)*22 : 0;
+  // chart fill progress: animate in while entering, stay full while leaving
+  const clarCp  = curState==='clarity' ? Math.min(Math.max((ep-0.18)/0.7,0),1) : 1;
+  const actCp   = curState==='action' ? Math.min(Math.max((ep-0.18)/0.7,0),1) : 1;
+
   nodes.forEach(n=>{
     const fp=getPos(n,fromState),tp=getPos(n,curState);
     n._x=lerp(fp.x,tp.x,ep);n._y=lerp(fp.y,tp.y,ep);
   });
 
-  // ── CHAOS lines ──
+  // ── CONNECTING FLOW: faint streaming dots tracing structure→visualise→action ──
+  if((fromState==='structure'&&curState==='clarity')||(fromState==='clarity'&&curState==='action')){
+    const flowA=Math.sin(ep*Math.PI); // peaks mid-transition
+    nodes.forEach((n,i)=>{
+      const fp=getPos(n,fromState),tp=getPos(n,curState);
+      const t2=Math.min(1,ep+((i%5)*0.06)); // staggered trailing dots
+      const fx=lerp(fp.x,tp.x,ease(t2))*sW, fy=lerp(fp.y,tp.y,ease(t2))*sH;
+      sx.globalAlpha=flowA*0.5;sx.fillStyle=DOMAIN_COLORS[n.dom];
+      sx.beginPath();sx.arc(fx,fy,n.imp?2.6:1.8,0,Math.PI*2);sx.fill();
+    });
+    sx.globalAlpha=1;
+  }
+
+  // CHAOS lines
   if(curState==='chaos'){
     nodes.forEach((n,i)=>{nodes.forEach((m,j)=>{
       if(j<=i)return;
@@ -686,110 +1097,70 @@ function drawStage(){
     })});
   }
 
-  // ── STRUCTURE headers ──
-  if(curState==='structure'&&ep>0.45){
-    const a=Math.min((ep-0.45)/0.5,1);
+  // STRUCTURE headers (stay visible while fading out into Visualise)
+  if(kStruct>0.001){
+    const a=kStruct*(curState==='structure'?Math.min(Math.max((ep-0.35)/0.5,0),1):1);
     DOMAINS.forEach((dom,di)=>{
       const hx=(di+0.5)/6*sW;
-      sx.globalAlpha=a;sx.font=`bold 10px Inter,sans-serif`;sx.fillStyle=DOMAIN_COLORS[dom];sx.textAlign='center';
-      sx.fillText(DOMAIN_LABELS[dom].toUpperCase(),hx,sH*0.042);
-      sx.strokeStyle=DOMAIN_COLORS[dom];sx.lineWidth=1;sx.globalAlpha=a*0.15;
-      sx.beginPath();sx.moveTo(hx-sW*0.07,sH*0.06);sx.lineTo(hx+sW*0.07,sH*0.06);sx.stroke();
+      sx.globalAlpha=a;sx.font=`bold 13px Inter,sans-serif`;sx.fillStyle=DOMAIN_COLORS[dom];sx.textAlign='center';
+      sx.fillText(DOMAIN_LABELS[dom].toUpperCase(),hx,sH*0.05);
+      sx.strokeStyle=DOMAIN_COLORS[dom];sx.lineWidth=1.5;sx.globalAlpha=a*0.18;
+      sx.beginPath();sx.moveTo(hx-sW*0.07,sH*0.072);sx.lineTo(hx+sW*0.07,sH*0.072);sx.stroke();
       sx.globalAlpha=1;sx.textAlign='left';
     });
     for(let di=1;di<6;di++){
-      const lx=di/6*sW;sx.globalAlpha=0.06;sx.strokeStyle='#4A8A9C';sx.lineWidth=0.5;
-      sx.beginPath();sx.moveTo(lx,sH*0.065);sx.lineTo(lx,sH*0.97);sx.stroke();sx.globalAlpha=1;
+      const lx=di/6*sW;sx.globalAlpha=kStruct*0.07;sx.strokeStyle='#4A8A9C';sx.lineWidth=0.5;
+      sx.beginPath();sx.moveTo(lx,sH*0.08);sx.lineTo(lx,sH*0.97);sx.stroke();sx.globalAlpha=1;
     }
   }
 
-  // ── CLARITY: mini dashboard cards ──
-  if(curState==='clarity'&&ep>0.2){
-    const a=Math.min((ep-0.2)/0.6,1);
-    const isMobile=sW<500;
+  // CLARITY cards — each domain gets a different chart type
+  if(kClar>0.001){
+    const a=kClar;
+    const cp=clarCp;
+    const isMobile=sW<520;
     const cols=isMobile?2:3;
     DOMAINS.forEach((dom,di)=>{
       const bCol=di%cols, bRow=Math.floor(di/cols);
       const colW=isMobile?0.47:0.295, rowH=isMobile?0.44:0.42;
       const gapX=isMobile?0.04:0.03, gapY=isMobile?0.03:0.04;
       const bx=(gapX+bCol*(colW+gapX*0.8))*sW;
-      const by=(gapY+bRow*(rowH+gapY))*sH;
+      const by=(gapY+bRow*(rowH+gapY))*sH + clarOY;
       const bw=sW*colW, bh=sH*rowH;
       const col=DOMAIN_COLORS[dom];
       const data=CLARITY_DATA[dom];
 
-      // card bg
-      sx.globalAlpha=a*0.97;sx.fillStyle='#FFFFFF';rr(sx,bx,by,bw,bh,8);sx.fill();
-      sx.globalAlpha=a*0.18;sx.strokeStyle=col;sx.lineWidth=1;rr(sx,bx,by,bw,bh,8);sx.stroke();
-      // top accent
+      // card shell
+      sx.globalAlpha=a*0.97;sx.fillStyle='#FFFFFF';rr(sx,bx,by,bw,bh,9);sx.fill();
+      sx.globalAlpha=a*0.18;sx.strokeStyle=col;sx.lineWidth=1;rr(sx,bx,by,bw,bh,9);sx.stroke();
       sx.globalAlpha=a;sx.fillStyle=col;rr(sx,bx,by,bw,3,2);sx.fill();
-      // domain name
-      sx.font=`bold 11px Inter,sans-serif`;sx.fillStyle=col;sx.textAlign='left';
-      sx.fillText(DOMAIN_LABELS[dom],bx+10,by+20);
+      // title
+      sx.font='bold 11px Inter,sans-serif';sx.fillStyle=col;sx.textAlign='left';sx.globalAlpha=a;
+      sx.fillText(data.title,bx+12,by+22);
 
-      // mini bar chart
-      const chartX=bx+10,chartY=by+30,chartW=bw-20,chartH=bh*0.38;
-      const nb=data.bars.length,bw2=chartW/(nb*1.8);
-      data.bars.forEach((h,bi)=>{
-        const barH=chartH*h*((ep>0.5)?(Math.min((ep-0.5)/0.4,1)):0);
-        const bxx=chartX+bi*(chartW/nb);
-        const byy=chartY+chartH-barH;
-        sx.globalAlpha=a*(0.4+bi*0.1);
-        sx.fillStyle=col;rr(sx,bxx,byy,bw2,barH,2);sx.fill();
-      });
-      // x-axis line
-      sx.globalAlpha=a*0.15;sx.strokeStyle=col;sx.lineWidth=0.5;
-      sx.beginPath();sx.moveTo(chartX,chartY+chartH);sx.lineTo(chartX+chartW,chartY+chartH);sx.stroke();
+      // chart region
+      const chX=bx+12,chY=by+32,chW=bw-24,chH=bh*0.46;
+      sx.globalAlpha=a;
+      drawChart(data.type,chX,chY,chW,chH,col,data,cp);
 
-      // trend line overlay
-      if(ep>0.65){
-        const ta=Math.min((ep-0.65)/0.3,1);
-        sx.globalAlpha=ta*0.5;sx.strokeStyle=col;sx.lineWidth=1.5;sx.beginPath();
-        data.bars.forEach((h,bi)=>{
-          const px2=chartX+bi*(chartW/nb)+bw2/2;
-          const py2=chartY+chartH*(1-h*0.9);
-          if(bi===0)sx.moveTo(px2,py2);else sx.lineTo(px2,py2);
-        });
-        sx.stroke();
-        // dots
-        data.bars.forEach((h,bi)=>{
-          const px2=chartX+bi*(chartW/nb)+bw2/2;
-          const py2=chartY+chartH*(1-h*0.9);
-          sx.globalAlpha=ta*0.7;sx.fillStyle=col;sx.beginPath();sx.arc(px2,py2,2,0,Math.PI*2);sx.fill();
-        });
-      }
-
-      // KPI pills — fixed layout, no overlap
-      if(ep>0.7){
-        const ka=Math.min((ep-0.7)/0.25,1);
-        const pillH=bh*0.24, pillW=(bw-28)/2, pillY=by+bh*0.72;
-        data.kpis.forEach((kpi,ki)=>{
-          const kx=bx+8+ki*(pillW+8), ky=pillY;
-          const statCol=kpi.s==='up'?'#2E7D5E':kpi.s==='down'?'#C0392B':kpi.s==='warn'?'#B07A1A':'#2B5F8E';
-          // pill bg
-          sx.globalAlpha=ka*0.1;sx.fillStyle=statCol;rr(sx,kx,ky,pillW,pillH,5);sx.fill();
-          sx.globalAlpha=ka*0.25;sx.strokeStyle=statCol;sx.lineWidth=0.8;rr(sx,kx,ky,pillW,pillH,5);sx.stroke();
-          sx.globalAlpha=ka;
-          // label
-          sx.font=`9px Inter,sans-serif`;sx.fillStyle='#5A7080';sx.textAlign='left';
-          sx.fillText(kpi.l,kx+7,ky+pillH*0.33);
-          // value on its own line
-          sx.font=`bold 12px Inter,sans-serif`;sx.fillStyle=statCol;
-          sx.fillText(kpi.v,kx+7,ky+pillH*0.72);
-          // trend badge — top right corner of pill
-          if(kpi.t){
-            sx.font=`8px Inter,sans-serif`;sx.fillStyle=statCol;sx.textAlign='right';
-            sx.fillText(kpi.t,kx+pillW-5,ky+pillH*0.35);
-          }
-        });
+      // KPI footer: value + trend
+      const statCol=data.s==='up'?'#2E7D5E':data.s==='down'?'#C0392B':data.s==='warn'?'#B07A1A':'#2B5F8E';
+      const ky=by+bh-16;
+      sx.globalAlpha=a;sx.textAlign='left';
+      sx.font='bold 15px Inter,sans-serif';sx.fillStyle='#1E2D40';
+      sx.fillText(data.v,bx+12,ky);
+      if(data.t){
+        sx.font='bold 10px Inter,sans-serif';sx.fillStyle=statCol;sx.textAlign='right';
+        const arrow=data.s==='up'?'▲ ':data.s==='down'?'▼ ':'';
+        sx.fillText(arrow+data.t,bx+bw-12,ky-1);
       }
       sx.globalAlpha=1;sx.textAlign='left';
     });
   }
 
-  // ── ACTION: bold visual indicator cards ──
-  if(curState==='action'&&ep>0.2){
-    const a=Math.min((ep-0.2)/0.6,1);
+  // ACTION cards
+  if(kAct>0.001){
+    const a=kAct;
     const isMobile=sW<500;
     const cols=isMobile?2:3;
     const cardW=isMobile?sW*0.45:sW*0.29;
@@ -798,17 +1169,13 @@ function drawStage(){
     ACTION_DATA.forEach((ac,ai)=>{
       const col2=ai%cols, row=Math.floor(ai/cols);
       const cx=sW*gapX+col2*(cardW+sW*gapX*0.8);
-      const cy=sH*0.03+row*(cardH+sH*0.03);
+      const cy=sH*0.03+row*(cardH+sH*0.03) + actOY;
       const sc2=ac.status==='ok'?'#2E7D5E':ac.status==='warn'?'#B07A1A':'#C0392B';
-      const bgLight=ac.status==='ok'?'rgba(46,125,94,0.05)':ac.status==='warn'?'rgba(176,122,26,0.05)':'rgba(192,57,43,0.05)';
 
-      // card bg + border
       sx.globalAlpha=a;sx.fillStyle='#FFFFFF';rr(sx,cx,cy,cardW,cardH,10);sx.fill();
       sx.globalAlpha=a*0.25;sx.strokeStyle=sc2;sx.lineWidth=1.5;rr(sx,cx,cy,cardW,cardH,10);sx.stroke();
-      // thick top bar (status colour)
       sx.globalAlpha=a;sx.fillStyle=sc2;rr(sx,cx,cy,cardW,5,3);sx.fill();
 
-      // STATUS BADGE — large circle, top-right
       const ir=cardH*0.15;
       const ix=cx+cardW-ir-14, iy=cy+cardH*0.22;
       sx.globalAlpha=a*0.18;sx.fillStyle=sc2;sx.beginPath();sx.arc(ix,iy,ir,0,Math.PI*2);sx.fill();
@@ -817,15 +1184,12 @@ function drawStage(){
       sx.font=`bold ${ir*1.1}px Inter,sans-serif`;sx.textAlign='center';sx.fillStyle=sc2;
       sx.fillText(ico,ix,iy+ir*0.38);
 
-      // metric label
       sx.textAlign='left';sx.font=`500 11px Inter,sans-serif`;sx.fillStyle='#5A7080';
       sx.globalAlpha=a*0.9;sx.fillText(ac.metric,cx+14,cy+cardH*0.2);
 
-      // BIG value
       sx.font=`bold 22px Inter,sans-serif`;sx.fillStyle=sc2;sx.globalAlpha=a;
       sx.fillText(ac.value,cx+14,cy+cardH*0.42);
 
-      // trend bar — full width, prominent
       if(ac.trend!==0){
         const tbY=cy+cardH*0.52, tbW=cardW-28, tbH=6;
         sx.globalAlpha=a*0.15;sx.fillStyle=sc2;rr(sx,cx+14,tbY,tbW,tbH,3);sx.fill();
@@ -835,16 +1199,13 @@ function drawStage(){
         sx.fillText((ac.trend>0?'+':'')+ac.trend+(ac.metric==='DSO'?' d':'%'), cx+14+tbW*fillPct+5, tbY+tbH);
       }
 
-      // divider
       const divY=cy+cardH*(ac.trend!==0?0.61:0.53);
       sx.globalAlpha=a*0.12;sx.strokeStyle='#4A8A9C';sx.lineWidth=0.8;
       sx.beginPath();sx.moveTo(cx+14,divY);sx.lineTo(cx+cardW-14,divY);sx.stroke();
 
-      // action text — highlighted box
       const actY=divY+8;
       sx.globalAlpha=a*0.08;sx.fillStyle=sc2;rr(sx,cx+10,actY,cardW-20,cardH-(actY-cy)-10,6);sx.fill();
       sx.globalAlpha=a*0.85;sx.font=`11px Inter,sans-serif`;sx.fillStyle='#1E2D40';
-      // word wrap
       const words=ac.action.split(' ');let line='',lineY=actY+16;
       words.forEach(w=>{
         const t2=line?line+' '+w:w;
@@ -856,7 +1217,7 @@ function drawStage(){
     });
   }
 
-  // ── DRAW NODES ──
+  // NODES
   nodes.forEach(n=>{
     const px=n._x*sW,py=n._y*sH;
     const col=DOMAIN_COLORS[n.dom];
@@ -867,79 +1228,73 @@ function drawStage(){
     else alpha=ep>0.5?0.6:0.25+ep*0.7;
     sx.globalAlpha=alpha;
     if(curState==='structure'&&ep>0.5){
-      const hs=n.sz*0.75,rr2=1;sx.save();sx.translate(px,py);sx.fillStyle=col;
+      const hs=n.sz*0.8,rr2=1.2;sx.save();sx.translate(px,py);sx.fillStyle=col;
       sx.beginPath();sx.moveTo(-hs+rr2,-hs);sx.lineTo(hs-rr2,-hs);sx.arcTo(hs,-hs,hs,-hs+rr2,rr2);sx.lineTo(hs,hs-rr2);sx.arcTo(hs,hs,hs-rr2,hs,rr2);sx.lineTo(-hs+rr2,hs);sx.arcTo(-hs,hs,-hs,hs-rr2,rr2);sx.lineTo(-hs,-hs+rr2);sx.arcTo(-hs,-hs,-hs+rr2,-hs,rr2);sx.closePath();sx.fill();sx.restore();
     } else {
-      sx.beginPath();sx.arc(px,py,n.sz,0,Math.PI*2);sx.fillStyle=col;sx.fill();
+      const rad=curState==='chaos'?n.sz*1.35:n.sz;
+      if(curState==='chaos'){ // soft halo so dots read on a big screen
+        sx.globalAlpha=alpha*0.18;sx.beginPath();sx.arc(px,py,rad*2.1,0,Math.PI*2);sx.fillStyle=col;sx.fill();sx.globalAlpha=alpha;
+      }
+      sx.beginPath();sx.arc(px,py,rad,0,Math.PI*2);sx.fillStyle=col;sx.fill();
     }
     sx.globalAlpha=1;
-    // chaos important labels
     if(curState==='chaos'&&n.imp){
-      sx.globalAlpha=0.7;sx.font=`bold 10px Inter,sans-serif`;sx.fillStyle=col;sx.fillText(n.term,px+n.sz+3,py+4);sx.globalAlpha=1;
+      sx.globalAlpha=0.82;sx.font=`bold 14px Inter,sans-serif`;sx.fillStyle=col;sx.fillText(n.term,px+n.sz*1.4+4,py+5);sx.globalAlpha=1;
     }
-    // structure labels
     if(curState==='structure'&&ep>0.6){
       const la=Math.min((ep-0.6)/0.35,1);
-      sx.globalAlpha=la*(n.imp?0.8:0.55);sx.font=`${n.imp?'bold ':' '}9px Inter,sans-serif`;sx.fillStyle=col;sx.fillText(n.term,px+n.sz+2,py+3);sx.globalAlpha=1;
+      sx.globalAlpha=la*(n.imp?0.9:0.62);sx.font=`${n.imp?'bold ':''}11.5px Inter,sans-serif`;sx.fillStyle=col;sx.fillText(n.term,px+n.sz+3,py+4);sx.globalAlpha=1;
     }
   });
-
-  // keep animating while on-screen; under reduced motion, stop once the view has settled
-  if(stageVisible && !(reduceMotion && animP>=1)) startStage();
 }
-// pause the canvas loop when it scrolls out of view — saves CPU/battery on phones & laptops
-const stageObs=new IntersectionObserver(es=>{
-  es.forEach(e=>{stageVisible=e.isIntersecting;stageVisible?startStage():stopStage()});
-},{threshold:0.01});
-stageObs.observe(document.getElementById('stage'));
 
-document.querySelectorAll('.stab').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const ns=btn.dataset.s;if(ns===curState)return;
-    nodes.forEach(n=>{n.lx=n._x||n.lx;n.ly=n._y||n.ly});
-    fromState=curState;curState=ns;animP=reduceMotion?1:0;
-    document.querySelectorAll('.stab').forEach(b=>{b.classList.remove('on');b.setAttribute('aria-selected','false')});
-    btn.classList.add('on');btn.setAttribute('aria-selected','true');
-    const foot=document.getElementById('sfoot');const d=descData[ns];
-    if(reduceMotion){
-      foot.innerHTML=`<i class="ti ${d.icon}" aria-hidden="true"></i><span>${d.text}</span>`;
-      startStage();return;
-    }
-    foot.style.opacity='0';
-    setTimeout(()=>{foot.innerHTML=`<i class="ti ${d.icon}" aria-hidden="true"></i><span>${d.text}</span>`;foot.style.opacity='1';},300);
-    const start=performance.now();
-    function tick(now){animP=(now-start)/1100;if(animP<1)requestAnimationFrame(tick);else animP=1;}
-    requestAnimationFrame(tick);
-    startStage();
+/* scene steps can jump scroll position */
+document.querySelectorAll('.scene-step').forEach((s,i)=>{
+  s.addEventListener('click',()=>{
+    const wrap=document.getElementById('scrollyWrap');
+    const targets=[0.04,0.42,0.67,0.95];
+    const navh=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navh'))||64;
+    const total=wrap.offsetHeight-(window.innerHeight-navh);
+    const y=wrap.offsetTop+targets[i]*total-navh;
+    window.scrollTo({top:y,behavior:reduceMotion?'auto':'smooth'});
   });
 });
 
-// CTA canvas
+/* ══════════ CTA squares ══════════ */
 const ctac=document.getElementById('ctac'),ctx3=ctac.getContext('2d');
 function ctaR(){ctac.width=ctac.offsetWidth;ctac.height=ctac.offsetHeight}
 ctaR();window.addEventListener('resize',ctaR);
 const ctaSqs=[];
 for(let i=0;i<28;i++) ctaSqs.push({x:Math.random(),y:Math.random(),s:Math.random()*22+4,r:Math.random()*Math.PI,vr:(Math.random()-0.5)*0.009,a:Math.random()*0.08+0.02,c:['#5B9EC9','#4A8A9C','#8BBFCC','rgba(255,255,255,0.5)'][i%4]});
-let ctaRAF=null,ctaVisible=false;
+let ctaRAF=null;
 function ctaFrame(){
   const cw=ctac.offsetWidth,ch=ctac.offsetHeight;ctx3.clearRect(0,0,cw,ch);
   ctaSqs.forEach(q=>{
     q.r+=q.vr;ctx3.save();ctx3.translate(q.x*cw,q.y*ch);ctx3.rotate(q.r);ctx3.globalAlpha=q.a;ctx3.fillStyle=q.c;
-    const h=q.s/2,rr=2;ctx3.beginPath();ctx3.moveTo(-h+rr,-h);ctx3.lineTo(h-rr,-h);ctx3.arcTo(h,-h,h,-h+rr,rr);ctx3.lineTo(h,h-rr);ctx3.arcTo(h,h,h-rr,h,rr);ctx3.lineTo(-h+rr,h);ctx3.arcTo(-h,h,-h,h-rr,rr);ctx3.lineTo(-h,-h+rr);ctx3.arcTo(-h,-h,-h+rr,-h,rr);ctx3.closePath();ctx3.fill();ctx3.restore();
+    const h=q.s/2,r=2;ctx3.beginPath();ctx3.moveTo(-h+r,-h);ctx3.lineTo(h-r,-h);ctx3.arcTo(h,-h,h,-h+r,r);ctx3.lineTo(h,h-r);ctx3.arcTo(h,h,h-r,h,r);ctx3.lineTo(-h+r,h);ctx3.arcTo(-h,h,-h,h-r,r);ctx3.lineTo(-h,-h+r);ctx3.arcTo(-h,-h,-h+r,-h,r);ctx3.closePath();ctx3.fill();ctx3.restore();
   });
 }
 function ctaLoop(){ctaFrame();ctaRAF=requestAnimationFrame(ctaLoop)}
 function startCta(){if(reduceMotion){ctaFrame();return}if(!ctaRAF)ctaLoop()}
 function stopCta(){if(ctaRAF){cancelAnimationFrame(ctaRAF);ctaRAF=null}}
 const ctaObs=new IntersectionObserver(es=>{
-  es.forEach(e=>{ctaVisible=e.isIntersecting;ctaVisible?startCta():stopCta()});
+  es.forEach(e=>{e.isIntersecting?startCta():stopCta()});
 },{threshold:0.01});
 ctaObs.observe(ctac);
 
-const obs=new IntersectionObserver(es=>{
-  es.forEach((e,idx)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),idx*70);obs.unobserve(e.target)}});
+/* ══════════ reveal on scroll ══════════ */
+const revObs=new IntersectionObserver(es=>{
+  es.forEach((e,idx)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),idx*70);revObs.unobserve(e.target)}});
 },{threshold:0.1});
-document.querySelectorAll('.rev').forEach(r=>obs.observe(r));
+function revObserveWithin(route){
+  const view=document.querySelector('.view-'+route);
+  if(!view)return;
+  view.querySelectorAll('.rev').forEach(r=>{r.classList.remove('vis');revObs.observe(r)});
+}
+
+/* ══════════ boot ══════════ */
+const initial=(location.hash.replace('#/','')||'home');
+showView(ROUTES.includes(initial)?initial:'home', false);
 </script>
 </body>
 </html>
